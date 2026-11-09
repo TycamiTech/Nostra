@@ -9,6 +9,7 @@
         android:requestLegacyExternalStorage="true">
         <activity
             android:name=".MainActivity"
+            android:label="Nostra"
             android:exported="true"
             android:launchMode="singleTop"
             android:taskAffinity=""

@@ -6,8 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../core/localization/app_strings.dart';
-import '../../../core/theme/mirello_theme.dart';
-import '../../reader/services/mirello_markdown_parser.dart';
+import '../../../core/theme/nostra_theme.dart';
+import '../../reader/services/nostra_markdown_parser.dart';
 import '../data/notebook_repository.dart';
 import '../models/subject_notebook.dart';
 import 'prompt_guide_sheet.dart';
@@ -74,7 +74,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: const BoxDecoration(
-        color: MirelloColors.paperSurface,
+        color: NostraColors.paperSurface,
         borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
       child: Column(
@@ -87,7 +87,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
               width: 36,
               height: 4,
               decoration: BoxDecoration(
-                color: MirelloColors.borderSubtle,
+                color: NostraColors.borderSubtle,
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
@@ -103,7 +103,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                 decoration: BoxDecoration(
                   color: widget.notebook.cardColor,
                   shape: BoxShape.circle,
-                  border: Border.all(color: MirelloColors.borderCard, width: 1),
+                  border: Border.all(color: NostraColors.borderCard, width: 1),
                 ),
               ),
               const SizedBox(width: 8),
@@ -112,7 +112,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                 ),
               ),
             ],
@@ -125,7 +125,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
             style: GoogleFonts.plusJakartaSans(
               fontSize: 17,
               fontWeight: FontWeight.w700,
-              color: MirelloColors.primaryInk,
+              color: NostraColors.primaryInk,
             ),
           ),
           const SizedBox(height: 6),
@@ -135,7 +135,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                 : 'Choose a method to import editorial notes into this subject:',
             style: GoogleFonts.plusJakartaSans(
               fontSize: 12.5,
-              color: MirelloColors.secondaryMuted,
+              color: NostraColors.secondaryMuted,
             ),
           ),
           const SizedBox(height: 18),
@@ -185,7 +185,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(
-                    color: MirelloColors.borderCard,
+                    color: NostraColors.borderCard,
                     width: 0.9,
                   ),
                 ),
@@ -197,14 +197,14 @@ class _DualImportSheetState extends State<DualImportSheet> {
                         color: Colors.transparent,
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
-                          color: MirelloColors.borderCard,
+                          color: NostraColors.borderCard,
                           width: 0.8,
                         ),
                       ),
                       child: const Icon(
                         LucideIcons.bookOpen,
                         size: 18,
-                        color: MirelloColors.primaryInk,
+                        color: NostraColors.primaryInk,
                       ),
                     ),
                     const SizedBox(width: 12),
@@ -217,7 +217,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 13,
                               fontWeight: FontWeight.w700,
-                              color: MirelloColors.primaryInk,
+                              color: NostraColors.primaryInk,
                             ),
                           ),
                           const SizedBox(height: 2),
@@ -225,7 +225,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                             AppStrings.promptGuideSubtitle,
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 11.5,
-                              color: MirelloColors.secondaryMuted,
+                              color: NostraColors.secondaryMuted,
                             ),
                           ),
                         ],
@@ -234,7 +234,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                     const Icon(
                       LucideIcons.chevronRight,
                       size: 16,
-                      color: MirelloColors.secondaryMuted,
+                      color: NostraColors.secondaryMuted,
                     ),
                   ],
                 ),
@@ -260,9 +260,9 @@ class _DualImportSheetState extends State<DualImportSheet> {
         child: Ink(
           padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
-            color: MirelloColors.scaffoldBackground,
+            color: NostraColors.scaffoldBackground,
             borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: MirelloColors.borderCard, width: 1.0),
+            border: Border.all(color: NostraColors.borderCard, width: 1.0),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -272,9 +272,9 @@ class _DualImportSheetState extends State<DualImportSheet> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: MirelloColors.borderCard, width: 0.8),
+                  border: Border.all(color: NostraColors.borderCard, width: 0.8),
                 ),
-                child: Icon(icon, size: 20, color: MirelloColors.primaryInk),
+                child: Icon(icon, size: 20, color: NostraColors.primaryInk),
               ),
               const SizedBox(width: 14),
               Expanded(
@@ -286,7 +286,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
-                        color: MirelloColors.primaryInk,
+                        color: NostraColors.primaryInk,
                       ),
                     ),
                     const SizedBox(height: 3),
@@ -294,7 +294,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                       subtitle,
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 12,
-                        color: MirelloColors.secondaryMuted,
+                        color: NostraColors.secondaryMuted,
                         height: 1.35,
                       ),
                     ),
@@ -312,7 +312,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
   Widget _buildPasteEditorView(BuildContext context) {
     final text = _textController.text.trim();
     final estimatedPages =
-        text.isNotEmpty ? MirelloMarkdownParser.splitPages(text).length : 0;
+        text.isNotEmpty ? NostraMarkdownParser.splitPages(text).length : 0;
 
     return Container(
       constraints: BoxConstraints(
@@ -325,7 +325,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
         bottom: MediaQuery.of(context).viewInsets.bottom + 20,
       ),
       decoration: const BoxDecoration(
-        color: MirelloColors.paperSurface,
+        color: NostraColors.paperSurface,
         borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
       child: Column(
@@ -338,7 +338,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
               width: 36,
               height: 4,
               decoration: BoxDecoration(
-                color: MirelloColors.borderSubtle,
+                color: NostraColors.borderSubtle,
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
@@ -356,7 +356,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 17,
                   fontWeight: FontWeight.w700,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               if (estimatedPages > 0)
@@ -366,7 +366,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                     vertical: 3,
                   ),
                   decoration: BoxDecoration(
-                    color: MirelloColors.highlighterYellow,
+                    color: NostraColors.highlighterYellow,
                     borderRadius: BorderRadius.circular(6),
                   ),
                   child: Text(
@@ -376,7 +376,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                     style: GoogleFonts.jetBrainsMono(
                       fontSize: 10.5,
                       fontWeight: FontWeight.w700,
-                      color: MirelloColors.primaryInk,
+                      color: NostraColors.primaryInk,
                     ),
                   ),
                 ),
@@ -389,7 +389,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                 : 'Separate each page with --- on a new line.',
             style: GoogleFonts.plusJakartaSans(
               fontSize: 12,
-              color: MirelloColors.secondaryMuted,
+              color: NostraColors.secondaryMuted,
             ),
           ),
           const SizedBox(height: 12),
@@ -399,9 +399,9 @@ class _DualImportSheetState extends State<DualImportSheet> {
             children: [
               OutlinedButton.icon(
                 style: OutlinedButton.styleFrom(
-                  foregroundColor: MirelloColors.primaryInk,
+                  foregroundColor: NostraColors.primaryInk,
                   side: const BorderSide(
-                    color: MirelloColors.borderCard,
+                    color: NostraColors.borderCard,
                     width: 1.0,
                   ),
                   backgroundColor: Colors.white,
@@ -416,7 +416,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                 onPressed: () async {
                   final data = await Clipboard.getData(Clipboard.kTextPlain);
                   if (data != null && data.text != null && data.text!.isNotEmpty) {
-                    final stripped = MirelloMarkdownParser.stripCodeFences(data.text!);
+                    final stripped = NostraMarkdownParser.stripCodeFences(data.text!);
                     _textController.text = stripped;
                     setState(() {});
                   }
@@ -435,9 +435,9 @@ class _DualImportSheetState extends State<DualImportSheet> {
               const SizedBox(width: 8),
               OutlinedButton.icon(
                 style: OutlinedButton.styleFrom(
-                  foregroundColor: MirelloColors.primaryInk,
+                  foregroundColor: NostraColors.primaryInk,
                   side: const BorderSide(
-                    color: MirelloColors.borderCard,
+                    color: NostraColors.borderCard,
                     width: 1.0,
                   ),
                   backgroundColor: Colors.white,
@@ -491,7 +491,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
               onChanged: (_) => setState(() {}),
               style: GoogleFonts.jetBrainsMono(
                 fontSize: 12.5,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
                 height: 1.45,
               ),
               decoration: InputDecoration(
@@ -499,7 +499,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                     '[MODUL 01 | CODE]\n# Judul Materi\n\nPenjelasan dengan ==highlight==...\n\n:::\nmetode RUMUS\n1. Langkah...\n:::\n\n---\n\n[MODUL 02 | CODE]...',
                 hintStyle: GoogleFonts.jetBrainsMono(
                   fontSize: 12,
-                  color: MirelloColors.secondaryMuted.withAlpha(140),
+                  color: NostraColors.secondaryMuted.withAlpha(140),
                 ),
                 filled: true,
                 fillColor: const Color(0xFFEBE8DF),
@@ -519,9 +519,9 @@ class _DualImportSheetState extends State<DualImportSheet> {
               Expanded(
                 child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: MirelloColors.primaryInk,
+                    foregroundColor: NostraColors.primaryInk,
                     side: const BorderSide(
-                      color: MirelloColors.borderSubtle,
+                      color: NostraColors.borderSubtle,
                       width: 1.2,
                     ),
                     shape: RoundedRectangleBorder(
@@ -548,8 +548,8 @@ class _DualImportSheetState extends State<DualImportSheet> {
                 flex: 2,
                 child: ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: MirelloColors.primaryInk,
-                    foregroundColor: MirelloColors.paperSurface,
+                    backgroundColor: NostraColors.primaryInk,
+                    foregroundColor: NostraColors.paperSurface,
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -597,8 +597,8 @@ class _DualImportSheetState extends State<DualImportSheet> {
       }
 
       // Automatically strip markdown code fences if copied as ```markdown ... ```
-      rawContent = MirelloMarkdownParser.stripCodeFences(rawContent);
-      final pages = MirelloMarkdownParser.splitPages(rawContent);
+      rawContent = NostraMarkdownParser.stripCodeFences(rawContent);
+      final pages = NostraMarkdownParser.splitPages(rawContent);
 
       await NotebookRepository.instance.updateMarkdown(
         widget.notebook.id,
@@ -614,7 +614,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
 
       messenger.showSnackBar(
         SnackBar(
-          backgroundColor: MirelloColors.primaryInk,
+          backgroundColor: NostraColors.primaryInk,
           behavior: SnackBarBehavior.floating,
           content: Row(
             children: [
@@ -630,7 +630,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                       ? 'Catatan berhasil disimpan!'
                       : 'Notes successfully saved!',
                   style: GoogleFonts.plusJakartaSans(
-                    color: MirelloColors.paperSurface,
+                    color: NostraColors.paperSurface,
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
                   ),
@@ -686,8 +686,8 @@ class _DualImportSheetState extends State<DualImportSheet> {
           return;
         }
 
-        content = MirelloMarkdownParser.stripCodeFences(content);
-        final pages = MirelloMarkdownParser.splitPages(content);
+        content = NostraMarkdownParser.stripCodeFences(content);
+        final pages = NostraMarkdownParser.splitPages(content);
         await NotebookRepository.instance.updateMarkdown(
           widget.notebook.id,
           content,
@@ -699,7 +699,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
 
         messenger.showSnackBar(
           SnackBar(
-            backgroundColor: MirelloColors.primaryInk,
+            backgroundColor: NostraColors.primaryInk,
             behavior: SnackBarBehavior.floating,
             content: Row(
               children: [
@@ -715,7 +715,7 @@ class _DualImportSheetState extends State<DualImportSheet> {
                         ? 'Catatan berhasil disimpan!'
                         : 'Notes successfully saved!',
                     style: GoogleFonts.plusJakartaSans(
-                      color: MirelloColors.paperSurface,
+                      color: NostraColors.paperSurface,
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
                     ),

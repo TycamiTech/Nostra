@@ -4,7 +4,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../core/localization/app_strings.dart';
 import '../../../core/services/app_settings_service.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 
 class AppModeScreen extends StatefulWidget {
   const AppModeScreen({super.key});
@@ -36,7 +36,7 @@ class _AppModeScreenState extends State<AppModeScreen> {
             color: Colors.white,
           ),
         ),
-        backgroundColor: MirelloColors.primaryInk,
+        backgroundColor: NostraColors.primaryInk,
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         duration: const Duration(seconds: 2),
@@ -50,15 +50,15 @@ class _AppModeScreenState extends State<AppModeScreen> {
       valueListenable: _settings.languageNotifier,
       builder: (context, language, _) {
         return Scaffold(
-      backgroundColor: MirelloColors.scaffoldBackground,
+      backgroundColor: NostraColors.scaffoldBackground,
       appBar: AppBar(
-        backgroundColor: MirelloColors.scaffoldBackground,
+        backgroundColor: NostraColors.scaffoldBackground,
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(
             LucideIcons.arrowLeft,
-            color: MirelloColors.primaryInk,
+            color: NostraColors.primaryInk,
             size: 20,
           ),
           onPressed: () => Navigator.pop(context),
@@ -68,7 +68,7 @@ class _AppModeScreenState extends State<AppModeScreen> {
           style: GoogleFonts.plusJakartaSans(
             fontSize: 16,
             fontWeight: FontWeight.w700,
-            color: MirelloColors.primaryInk,
+            color: NostraColors.primaryInk,
           ),
         ),
       ),
@@ -83,7 +83,7 @@ class _AppModeScreenState extends State<AppModeScreen> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 22,
                 fontWeight: FontWeight.w700,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
                 letterSpacing: -0.3,
               ),
             ),
@@ -93,7 +93,7 @@ class _AppModeScreenState extends State<AppModeScreen> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 13,
                 fontWeight: FontWeight.w400,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
                 height: 1.45,
               ),
             ),
@@ -138,7 +138,7 @@ class _AppModeScreenState extends State<AppModeScreen> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
-                  color: MirelloColors.borderCard,
+                  color: NostraColors.borderCard,
                   width: 0.9,
                 ),
               ),
@@ -154,7 +154,7 @@ class _AppModeScreenState extends State<AppModeScreen> {
                     child: const Icon(
                       LucideIcons.info,
                       size: 16,
-                      color: MirelloColors.primaryInk,
+                      color: NostraColors.primaryInk,
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -163,7 +163,7 @@ class _AppModeScreenState extends State<AppModeScreen> {
                       AppStrings.modeSafetyNotice,
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 12,
-                        color: MirelloColors.secondaryMuted,
+                        color: NostraColors.secondaryMuted,
                         height: 1.4,
                       ),
                     ),
@@ -206,14 +206,14 @@ class _AppModeScreenState extends State<AppModeScreen> {
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
               color: isSelected
-                  ? MirelloColors.primaryInk
-                  : MirelloColors.borderCard,
+                  ? NostraColors.primaryInk
+                  : NostraColors.borderCard,
               width: isSelected ? 2.0 : 1.0,
             ),
             boxShadow: [
               BoxShadow(
                 color: isSelected
-                    ? MirelloColors.primaryInk.withValues(alpha: 0.08)
+                    ? NostraColors.primaryInk.withValues(alpha: 0.08)
                     : Colors.black.withValues(alpha: 0.02),
                 blurRadius: isSelected ? 12 : 6,
                 offset: const Offset(0, 3),
@@ -252,12 +252,12 @@ class _AppModeScreenState extends State<AppModeScreen> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: isSelected
-                          ? MirelloColors.primaryInk
+                          ? NostraColors.primaryInk
                           : Colors.transparent,
                       border: Border.all(
                         color: isSelected
-                            ? MirelloColors.primaryInk
-                            : MirelloColors.borderSubtle,
+                            ? NostraColors.primaryInk
+                            : NostraColors.borderSubtle,
                         width: 2,
                       ),
                     ),
@@ -287,7 +287,7 @@ class _AppModeScreenState extends State<AppModeScreen> {
                     child: Icon(
                       icon,
                       size: 20,
-                      color: MirelloColors.primaryInk,
+                      color: NostraColors.primaryInk,
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -300,7 +300,7 @@ class _AppModeScreenState extends State<AppModeScreen> {
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 15.5,
                             fontWeight: FontWeight.w700,
-                            color: MirelloColors.primaryInk,
+                            color: NostraColors.primaryInk,
                           ),
                         ),
                         Text(
@@ -308,7 +308,7 @@ class _AppModeScreenState extends State<AppModeScreen> {
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 11.5,
                             fontWeight: FontWeight.w500,
-                            color: MirelloColors.secondaryMuted,
+                            color: NostraColors.secondaryMuted,
                           ),
                         ),
                       ],
@@ -324,14 +324,14 @@ class _AppModeScreenState extends State<AppModeScreen> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 12.5,
                   height: 1.45,
-                  color: MirelloColors.primaryInk.withValues(alpha: 0.85),
+                  color: NostraColors.primaryInk.withValues(alpha: 0.85),
                 ),
               ),
               const SizedBox(height: 14),
 
               // Divider
               Divider(
-                color: MirelloColors.borderCard.withValues(alpha: 0.7),
+                color: NostraColors.borderCard.withValues(alpha: 0.7),
                 height: 1,
               ),
               const SizedBox(height: 12),
@@ -352,7 +352,7 @@ class _AppModeScreenState extends State<AppModeScreen> {
                           size: 13,
                           color: isSelected
                               ? const Color(0xFF2A5035)
-                              : MirelloColors.secondaryMuted,
+                              : NostraColors.secondaryMuted,
                         ),
                       ),
                       const SizedBox(width: 8),
@@ -361,7 +361,7 @@ class _AppModeScreenState extends State<AppModeScreen> {
                           f,
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 11.5,
-                            color: MirelloColors.primaryInk,
+                            color: NostraColors.primaryInk,
                             height: 1.35,
                           ),
                         ),

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mirello_utbk/features/library/models/subject_notebook.dart';
+import 'package:nostra/features/library/models/subject_notebook.dart';
 
 void main() {
   test('SubjectNotebook default subjects count and data integrity', () {

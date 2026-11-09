@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mirello_utbk/features/notes/models/free_note.dart';
+import 'package:nostra/features/notes/models/free_note.dart';
 
 void main() {
   group('FreeNote Model Tests', () {

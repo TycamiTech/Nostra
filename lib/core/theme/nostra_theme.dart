@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-/// Mirello Soft Warm Color Palette
+/// Nostra Soft Warm Color Palette
 /// Designed for distraction-free, editorial-grade reading and study organization.
-class MirelloColors {
-  MirelloColors._();
+class NostraColors {
+  NostraColors._();
 
   // Core surfaces & ink
   static const Color scaffoldBackground = Color(0xFFF5F4F0); // Soft Warm Off-White
@@ -28,16 +28,16 @@ class MirelloColors {
   static const Color surfaceTranslucent = Color(0xCCF7F3E8);
 }
 
-/// Editorial Typography System for Mirello UTBK
+/// Editorial Typography System for Nostra
 /// Combines cursive brand flourishes, modern sans-serif UI, classical serifs,
 /// and monospace page/progress counters.
-class MirelloTextStyles {
-  MirelloTextStyles._();
+class NostraTextStyles {
+  NostraTextStyles._();
 
   // Brand Cursive Headers (Satisfy & Pacifico)
   static TextStyle brandHeader({
     double fontSize = 30,
-    Color color = MirelloColors.primaryInk,
+    Color color = NostraColors.primaryInk,
   }) =>
       GoogleFonts.satisfy(
         fontSize: fontSize,
@@ -48,7 +48,7 @@ class MirelloTextStyles {
 
   static TextStyle brandHeaderPacifico({
     double fontSize = 26,
-    Color color = MirelloColors.primaryInk,
+    Color color = NostraColors.primaryInk,
   }) =>
       GoogleFonts.pacifico(
         fontSize: fontSize,
@@ -58,7 +58,7 @@ class MirelloTextStyles {
 
   // Modern UI & Card Titles (Plus Jakarta Sans)
   static TextStyle uiHeadline({
-    Color color = MirelloColors.primaryInk,
+    Color color = NostraColors.primaryInk,
   }) =>
       GoogleFonts.plusJakartaSans(
         fontSize: 24,
@@ -68,7 +68,7 @@ class MirelloTextStyles {
       );
 
   static TextStyle uiTitleLarge({
-    Color color = MirelloColors.primaryInk,
+    Color color = NostraColors.primaryInk,
   }) =>
       GoogleFonts.plusJakartaSans(
         fontSize: 18,
@@ -78,7 +78,7 @@ class MirelloTextStyles {
       );
 
   static TextStyle uiTitleMedium({
-    Color color = MirelloColors.primaryInk,
+    Color color = NostraColors.primaryInk,
   }) =>
       GoogleFonts.plusJakartaSans(
         fontSize: 15,
@@ -88,7 +88,7 @@ class MirelloTextStyles {
       );
 
   static TextStyle uiBody({
-    Color color = MirelloColors.primaryInk,
+    Color color = NostraColors.primaryInk,
     double height = 1.45,
   }) =>
       GoogleFonts.plusJakartaSans(
@@ -99,7 +99,7 @@ class MirelloTextStyles {
       );
 
   static TextStyle uiCaption({
-    Color color = MirelloColors.secondaryMuted,
+    Color color = NostraColors.secondaryMuted,
   }) =>
       GoogleFonts.plusJakartaSans(
         fontSize: 12,
@@ -109,7 +109,7 @@ class MirelloTextStyles {
       );
 
   static TextStyle uiBadge({
-    Color color = MirelloColors.primaryInk,
+    Color color = NostraColors.primaryInk,
   }) =>
       GoogleFonts.plusJakartaSans(
         fontSize: 10.5,
@@ -120,7 +120,7 @@ class MirelloTextStyles {
 
   // Classic Editorial & Reading Serif (Newsreader & Lora)
   static TextStyle readingTitle({
-    Color color = MirelloColors.primaryInk,
+    Color color = NostraColors.primaryInk,
   }) =>
       GoogleFonts.newsreader(
         fontSize: 22,
@@ -130,7 +130,7 @@ class MirelloTextStyles {
       );
 
   static TextStyle readingSubtitleSerif({
-    Color color = MirelloColors.secondaryMuted,
+    Color color = NostraColors.secondaryMuted,
   }) =>
       GoogleFonts.newsreader(
         fontSize: 16,
@@ -140,7 +140,7 @@ class MirelloTextStyles {
       );
 
   static TextStyle readingBodySerif({
-    Color color = MirelloColors.primaryInk,
+    Color color = NostraColors.primaryInk,
     double height = 1.6,
   }) =>
       GoogleFonts.lora(
@@ -152,7 +152,7 @@ class MirelloTextStyles {
 
   // Page Numbers, Timers & Numerical Metrics (JetBrains Mono)
   static TextStyle monoNumber({
-    Color color = MirelloColors.primaryInk,
+    Color color = NostraColors.primaryInk,
     double fontSize = 12,
     FontWeight fontWeight = FontWeight.w600,
   }) =>
@@ -164,34 +164,34 @@ class MirelloTextStyles {
       );
 }
 
-/// Global Mirello Light Theme configuration
-class MirelloTheme {
-  MirelloTheme._();
+/// Global Nostra Light Theme configuration
+class NostraTheme {
+  NostraTheme._();
 
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      scaffoldBackgroundColor: MirelloColors.scaffoldBackground,
+      scaffoldBackgroundColor: NostraColors.scaffoldBackground,
       colorScheme: const ColorScheme(
         brightness: Brightness.light,
-        primary: MirelloColors.primaryInk,
-        onPrimary: MirelloColors.paperSurface,
-        secondary: MirelloColors.secondaryMuted,
-        onSecondary: MirelloColors.pureWhite,
+        primary: NostraColors.primaryInk,
+        onPrimary: NostraColors.paperSurface,
+        secondary: NostraColors.secondaryMuted,
+        onSecondary: NostraColors.pureWhite,
         error: Color(0xFFBA1A1A),
         onError: Colors.white,
-        surface: MirelloColors.paperSurface,
-        onSurface: MirelloColors.primaryInk,
+        surface: NostraColors.paperSurface,
+        onSurface: NostraColors.primaryInk,
       ),
       appBarTheme: AppBarTheme(
-        backgroundColor: MirelloColors.scaffoldBackground,
+        backgroundColor: NostraColors.scaffoldBackground,
         elevation: 0,
         scrolledUnderElevation: 0,
         centerTitle: false,
-        titleTextStyle: MirelloTextStyles.uiTitleLarge(),
+        titleTextStyle: NostraTextStyles.uiTitleLarge(),
         iconTheme: const IconThemeData(
-          color: MirelloColors.primaryInk,
+          color: NostraColors.primaryInk,
           size: 20,
         ),
       ),
@@ -201,13 +201,13 @@ class MirelloTheme {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
           side: const BorderSide(
-            color: MirelloColors.borderCard,
+            color: NostraColors.borderCard,
             width: 1.0,
           ),
         ),
       ),
       dividerTheme: const DividerThemeData(
-        color: MirelloColors.borderSubtle,
+        color: NostraColors.borderSubtle,
         thickness: 1,
         space: 1,
       ),
@@ -216,3 +216,4 @@ class MirelloTheme {
     );
   }
 }
+

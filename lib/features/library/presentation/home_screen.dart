@@ -5,7 +5,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../core/localization/app_strings.dart';
 import '../../../core/services/app_settings_service.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 import '../../../core/widgets/doodle_illustrations.dart';
 import '../../notes/presentation/free_notes_tab.dart';
 import '../../reader/presentation/reader_screen.dart';
@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
       valueListenable: AppSettingsService.instance.languageNotifier,
       builder: (context, language, _) {
         return Scaffold(
-          backgroundColor: MirelloColors.scaffoldBackground,
+          backgroundColor: NostraColors.scaffoldBackground,
           appBar: _buildEditorialAppBar(),
           body: SafeArea(
             child: _buildCurrentTabBody(language),
@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 20,
                   fontWeight: FontWeight.w500,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                   letterSpacing: -0.2,
                 ),
               ),
@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 12.5,
                   fontWeight: FontWeight.w400,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                 ),
               ),
             ],
@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   fontSize: 20,
                   fontWeight: FontWeight.w500,
                   letterSpacing: -0.2,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(height: 4),
@@ -146,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 12.5,
                   fontWeight: FontWeight.w400,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                 ),
               ),
               const SizedBox(height: 14),
@@ -222,13 +222,13 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
         decoration: BoxDecoration(
           color: isSelected
-              ? MirelloColors.primaryInk
+              ? NostraColors.primaryInk
               : Colors.white.withValues(alpha: 0.7),
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
             color: isSelected
-                ? MirelloColors.primaryInk
-                : MirelloColors.borderCard,
+                ? NostraColors.primaryInk
+                : NostraColors.borderCard,
             width: 1.0,
           ),
         ),
@@ -238,7 +238,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Icon(
               icon,
               size: 14,
-              color: isSelected ? Colors.white : MirelloColors.secondaryMuted,
+              color: isSelected ? Colors.white : NostraColors.secondaryMuted,
             ),
             const SizedBox(width: 6),
             Text(
@@ -246,7 +246,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 12,
                 fontWeight: isSelected ? FontWeight.w700 : FontWeight.w600,
-                color: isSelected ? Colors.white : MirelloColors.secondaryMuted,
+                color: isSelected ? Colors.white : NostraColors.secondaryMuted,
               ),
             ),
           ],
@@ -258,14 +258,14 @@ class _HomeScreenState extends State<HomeScreen> {
   /// Editorial Top Bar with centered Pacifico script
   PreferredSizeWidget _buildEditorialAppBar() {
     return AppBar(
-      backgroundColor: MirelloColors.scaffoldBackground,
+      backgroundColor: NostraColors.scaffoldBackground,
       elevation: 0,
       scrolledUnderElevation: 0,
       centerTitle: true,
       leading: IconButton(
         icon: const Icon(
           LucideIcons.menu,
-          color: MirelloColors.primaryInk,
+          color: NostraColors.primaryInk,
           size: 22,
         ),
         tooltip: AppStrings.menuNostra,
@@ -277,7 +277,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'Nostra',
         style: GoogleFonts.pacifico(
           fontSize: 26,
-          color: MirelloColors.primaryInk,
+          color: NostraColors.primaryInk,
           fontWeight: FontWeight.w400,
         ),
       ),
@@ -286,7 +286,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const Icon(
               LucideIcons.folderPlus,
-              color: MirelloColors.primaryInk,
+              color: NostraColors.primaryInk,
               size: 22,
             ),
             tooltip: AppStrings.addSubject,
@@ -318,7 +318,7 @@ class _HomeScreenState extends State<HomeScreen> {
             color: notebook.cardColor,
             borderRadius: BorderRadius.circular(24),
             border: Border.all(
-              color: MirelloColors.borderCard,
+              color: NostraColors.borderCard,
               width: 1.0,
             ),
           ),
@@ -347,7 +347,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     vertical: 3,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: MirelloColors.scaffoldBackground
+                                    color: NostraColors.scaffoldBackground
                                         .withAlpha(200),
                                     borderRadius: BorderRadius.circular(6),
                                   ),
@@ -356,7 +356,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: GoogleFonts.plusJakartaSans(
                                       fontSize: 10.5,
                                       fontWeight: FontWeight.w700,
-                                      color: MirelloColors.primaryInk,
+                                      color: NostraColors.primaryInk,
                                       letterSpacing: 0.5,
                                     ),
                                   ),
@@ -372,7 +372,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: GoogleFonts.plusJakartaSans(
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.w700,
-                                color: MirelloColors.primaryInk,
+                                color: NostraColors.primaryInk,
                                 height: 1.15,
                                 letterSpacing: -0.3,
                               ),
@@ -386,7 +386,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: GoogleFonts.plusJakartaSans(
                                 fontSize: 11.5,
                                 fontWeight: FontWeight.w500,
-                                color: MirelloColors.secondaryMuted,
+                                color: NostraColors.secondaryMuted,
                               ),
                             ),
                           ],
@@ -423,7 +423,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Container(
                       padding: const EdgeInsets.all(6),
                       decoration: BoxDecoration(
-                        color: MirelloColors.scaffoldBackground.withAlpha(160),
+                        color: NostraColors.scaffoldBackground.withAlpha(160),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
@@ -433,7 +433,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         size: 14,
                         color: notebook.isFavorite
                             ? const Color(0xFFBA1A1A)
-                            : MirelloColors.secondaryMuted,
+                            : NostraColors.secondaryMuted,
                       ),
                     ),
                   ),
@@ -450,7 +450,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildBottomNavigationBar() {
     return Container(
       decoration: const BoxDecoration(
-        color: MirelloColors.scaffoldBackground,
+        color: NostraColors.scaffoldBackground,
         border: Border(
           top: BorderSide(
             color: Color(0xFFE2E0D8),
@@ -493,7 +493,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }) {
     final isSelected = _currentTabIndex == index;
     final color =
-        isSelected ? MirelloColors.primaryInk : MirelloColors.secondaryMuted;
+        isSelected ? NostraColors.primaryInk : NostraColors.secondaryMuted;
 
     return InkWell(
       borderRadius: BorderRadius.circular(16),
@@ -538,13 +538,13 @@ class _HomeScreenState extends State<HomeScreen> {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: const BoxDecoration(
-                  color: MirelloColors.paperSurface,
+                  color: NostraColors.paperSurface,
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
                   LucideIcons.heartCrack,
                   size: 28,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                 ),
               ),
               const SizedBox(height: 16),
@@ -553,7 +553,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(height: 6),
@@ -562,7 +562,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 textAlign: TextAlign.center,
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 13,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                 ),
               ),
             ],
@@ -580,13 +580,13 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: const BoxDecoration(
-                color: MirelloColors.paperSurface,
+                color: NostraColors.paperSurface,
                 shape: BoxShape.circle,
               ),
               child: const Icon(
                 LucideIcons.folderPlus,
                 size: 28,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
               ),
             ),
             const SizedBox(height: 16),
@@ -595,7 +595,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
             ),
             const SizedBox(height: 6),
@@ -604,7 +604,7 @@ class _HomeScreenState extends State<HomeScreen> {
               textAlign: TextAlign.center,
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 13,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
               ),
             ),
           ],
@@ -655,7 +655,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return Container(
           padding: const EdgeInsets.all(24),
           decoration: const BoxDecoration(
-            color: MirelloColors.paperSurface,
+            color: NostraColors.paperSurface,
             borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
           ),
           child: Column(
@@ -667,7 +667,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: 36,
                   height: 4,
                   decoration: BoxDecoration(
-                    color: MirelloColors.borderSubtle,
+                    color: NostraColors.borderSubtle,
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),
@@ -682,7 +682,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: notebook.cardColor,
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: MirelloColors.borderCard,
+                        color: NostraColors.borderCard,
                         width: 1,
                       ),
                     ),
@@ -690,7 +690,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(width: 10),
                   Text(
                     notebook.code,
-                    style: MirelloTextStyles.monoNumber(
+                    style: NostraTextStyles.monoNumber(
                       fontSize: 12,
                       fontWeight: FontWeight.w700,
                     ),
@@ -703,7 +703,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(height: 4),
@@ -713,7 +713,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     : '${notebook.totalPages} Pages of Editorial Notes',
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 13,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                 ),
               ),
               const SizedBox(height: 20),
@@ -722,9 +722,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   Expanded(
                     child: OutlinedButton.icon(
                       style: OutlinedButton.styleFrom(
-                        foregroundColor: MirelloColors.primaryInk,
+                        foregroundColor: NostraColors.primaryInk,
                         side: const BorderSide(
-                          color: MirelloColors.borderSubtle,
+                          color: NostraColors.borderSubtle,
                           width: 1.5,
                         ),
                         shape: RoundedRectangleBorder(
@@ -753,8 +753,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   Expanded(
                     child: ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: MirelloColors.primaryInk,
-                        foregroundColor: MirelloColors.paperSurface,
+                        backgroundColor: NostraColors.primaryInk,
+                        foregroundColor: NostraColors.paperSurface,
                         elevation: 0,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(14),
@@ -793,7 +793,7 @@ class _HomeScreenState extends State<HomeScreen> {
         return Container(
           padding: const EdgeInsets.all(24),
           decoration: const BoxDecoration(
-            color: MirelloColors.paperSurface,
+            color: NostraColors.paperSurface,
             borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
           ),
           child: Column(
@@ -807,7 +807,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 17,
                   fontWeight: FontWeight.w700,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(height: 16),
@@ -815,7 +815,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 contentPadding: EdgeInsets.zero,
                 leading: const Icon(
                   LucideIcons.info,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                   size: 20,
                 ),
                 title: Text(
@@ -836,7 +836,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 contentPadding: EdgeInsets.zero,
                 leading: const Icon(
                   LucideIcons.fileText,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                   size: 20,
                 ),
                 title: Text(
@@ -894,7 +894,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 contentPadding: EdgeInsets.zero,
                 leading: Icon(
                   notebook.isFavorite ? LucideIcons.heartOff : LucideIcons.heart,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                   size: 20,
                 ),
                 title: Text(
@@ -915,7 +915,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 contentPadding: EdgeInsets.zero,
                 leading: const Icon(
                   LucideIcons.archive,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                   size: 20,
                 ),
                 title: Text(
@@ -968,7 +968,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   final confirmed = await showDialog<bool>(
                     context: context,
                     builder: (ctx) => AlertDialog(
-                      backgroundColor: MirelloColors.paperSurface,
+                      backgroundColor: NostraColors.paperSurface,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
                       ),
@@ -979,7 +979,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: GoogleFonts.plusJakartaSans(
                           fontWeight: FontWeight.w700,
                           fontSize: 16,
-                          color: MirelloColors.primaryInk,
+                          color: NostraColors.primaryInk,
                         ),
                       ),
                       content: Text(
@@ -988,7 +988,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             : 'Subject "${notebook.title}" will be moved to Trash and stored for 7 days before permanent deletion.',
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 13,
-                          color: MirelloColors.secondaryMuted,
+                          color: NostraColors.secondaryMuted,
                           height: 1.4,
                         ),
                       ),
@@ -999,7 +999,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             AppStrings.cancel,
                             style: GoogleFonts.plusJakartaSans(
                               fontWeight: FontWeight.w600,
-                              color: MirelloColors.secondaryMuted,
+                              color: NostraColors.secondaryMuted,
                             ),
                           ),
                         ),
@@ -1028,14 +1028,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     await _repository.delete(notebook.id);
                     messenger.showSnackBar(
                       SnackBar(
-                        backgroundColor: MirelloColors.primaryInk,
+                        backgroundColor: NostraColors.primaryInk,
                         behavior: SnackBarBehavior.floating,
                         content: Text(
                           AppStrings.isIndonesian
                               ? '"${notebook.title}" dipindahkan ke Sampah.'
                               : '"${notebook.title}" moved to Trash.',
                           style: GoogleFonts.plusJakartaSans(
-                            color: MirelloColors.paperSurface,
+                            color: NostraColors.paperSurface,
                             fontSize: 13,
                           ),
                         ),

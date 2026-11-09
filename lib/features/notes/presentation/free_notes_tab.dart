@@ -6,7 +6,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../core/localization/app_strings.dart';
 import '../../../core/services/app_settings_service.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 import '../../../core/utils/date_formatter.dart';
 import '../data/free_notes_repository.dart';
 import '../models/free_note.dart';
@@ -39,7 +39,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
       buffer.write(hex.replaceFirst('#', ''));
       return Color(int.parse(buffer.toString(), radix: 16));
     } catch (_) {
-      return MirelloColors.paperSurface;
+      return NostraColors.paperSurface;
     }
   }
 
@@ -61,7 +61,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
       builder: (sheetCtx) => Container(
         padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
         decoration: const BoxDecoration(
-          color: MirelloColors.paperSurface,
+          color: NostraColors.paperSurface,
           borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
         ),
         child: Column(
@@ -72,7 +72,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
                 width: 36,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: MirelloColors.borderSubtle,
+                  color: NostraColors.borderSubtle,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -83,7 +83,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 15,
                 fontWeight: FontWeight.w700,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
@@ -92,14 +92,14 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
             ListTile(
               leading: Icon(
                 note.isPinned ? LucideIcons.pinOff : LucideIcons.pin,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
               title: Text(
                 note.isPinned ? AppStrings.unpin : AppStrings.pinToTop,
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               onTap: () {
@@ -110,14 +110,14 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
             ListTile(
               leading: Icon(
                 note.isFavorite ? LucideIcons.heartHandshake : LucideIcons.heart,
-                color: note.isFavorite ? const Color(0xFFBA1A1A) : MirelloColors.primaryInk,
+                color: note.isFavorite ? const Color(0xFFBA1A1A) : NostraColors.primaryInk,
               ),
               title: Text(
                 note.isFavorite ? AppStrings.removeFromFavorites : AppStrings.addToFavorites,
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               onTap: () {
@@ -128,14 +128,14 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
             ListTile(
               leading: const Icon(
                 LucideIcons.archive,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
               title: Text(
                 note.isArchived ? AppStrings.unarchiveNote : AppStrings.archiveNote,
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               onTap: () {
@@ -189,10 +189,10 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
       valueListenable: AppSettingsService.instance.languageNotifier,
       builder: (context, language, _) {
         return Scaffold(
-      backgroundColor: MirelloColors.scaffoldBackground,
+      backgroundColor: NostraColors.scaffoldBackground,
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: MirelloColors.primaryInk,
-        foregroundColor: MirelloColors.paperSurface,
+        backgroundColor: NostraColors.primaryInk,
+        foregroundColor: NostraColors.paperSurface,
         elevation: 2,
         onPressed: () => _openEditor(),
         icon: const Icon(LucideIcons.plus, size: 20),
@@ -220,7 +220,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
-                    color: MirelloColors.primaryInk,
+                    color: NostraColors.primaryInk,
                     letterSpacing: -0.2,
                   ),
                 ),
@@ -238,7 +238,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 12.5,
                         fontWeight: FontWeight.w400,
-                        color: MirelloColors.secondaryMuted,
+                        color: NostraColors.secondaryMuted,
                       ),
                     );
                   },
@@ -256,7 +256,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(14),
                 border: Border.all(
-                  color: MirelloColors.borderCard,
+                  color: NostraColors.borderCard,
                   width: 1.0,
                 ),
               ),
@@ -269,25 +269,25 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
                 },
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 13.5,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
                 decoration: InputDecoration(
                   hintText: AppStrings.searchNotes,
                   hintStyle: GoogleFonts.plusJakartaSans(
                     fontSize: 13,
-                    color: MirelloColors.secondaryMuted.withValues(alpha: 0.7),
+                    color: NostraColors.secondaryMuted.withValues(alpha: 0.7),
                   ),
                   prefixIcon: const Icon(
                     LucideIcons.search,
                     size: 18,
-                    color: MirelloColors.secondaryMuted,
+                    color: NostraColors.secondaryMuted,
                   ),
                   suffixIcon: _searchQuery.isNotEmpty
                       ? IconButton(
                           icon: const Icon(
                             LucideIcons.x,
                             size: 16,
-                            color: MirelloColors.secondaryMuted,
+                            color: NostraColors.secondaryMuted,
                           ),
                           onPressed: () {
                             _searchController.clear();
@@ -358,7 +358,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
             color: bgColor,
             borderRadius: BorderRadius.circular(18),
             border: Border.all(
-              color: MirelloColors.borderCard.withValues(alpha: 0.9),
+              color: NostraColors.borderCard.withValues(alpha: 0.9),
               width: 1.0,
             ),
             boxShadow: [
@@ -435,7 +435,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
-                        color: MirelloColors.primaryInk,
+                        color: NostraColors.primaryInk,
                         height: 1.25,
                       ),
                       maxLines: 2,
@@ -463,7 +463,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
                           baseStyle: GoogleFonts.plusJakartaSans(
                             fontSize: 12,
                             height: 1.45,
-                            color: MirelloColors.primaryInk.withValues(alpha: 0.8),
+                            color: NostraColors.primaryInk.withValues(alpha: 0.8),
                           ),
                         ),
                         maxLines: note.imagePaths.isNotEmpty ? 2 : 5,
@@ -476,7 +476,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 12,
                           height: 1.45,
-                          color: MirelloColors.primaryInk.withValues(alpha: 0.8),
+                          color: NostraColors.primaryInk.withValues(alpha: 0.8),
                           fontStyle: FontStyle.italic,
                         ),
                         maxLines: note.imagePaths.isNotEmpty ? 2 : 5,
@@ -495,7 +495,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 10,
                       fontWeight: FontWeight.w500,
-                      color: MirelloColors.secondaryMuted,
+                      color: NostraColors.secondaryMuted,
                     ),
                   ),
                   GestureDetector(
@@ -510,7 +510,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
                         size: 14,
                         color: note.isFavorite
                             ? const Color(0xFFBA1A1A)
-                            : MirelloColors.secondaryMuted.withValues(alpha: 0.6),
+                            : NostraColors.secondaryMuted.withValues(alpha: 0.6),
                       ),
                     ),
                   ),
@@ -536,14 +536,14 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
                 color: Colors.white,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: MirelloColors.borderCard,
+                  color: NostraColors.borderCard,
                   width: 1.0,
                 ),
               ),
               child: const Icon(
                 LucideIcons.notebookPen,
                 size: 32,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
               ),
             ),
             const SizedBox(height: 16),
@@ -556,7 +556,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
             ),
             const SizedBox(height: 6),
@@ -569,7 +569,7 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
               textAlign: TextAlign.center,
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 12.5,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
                 height: 1.4,
               ),
             ),
@@ -577,8 +577,8 @@ class _FreeNotesTabState extends State<FreeNotesTab> {
               const SizedBox(height: 18),
               ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: MirelloColors.primaryInk,
-                  foregroundColor: MirelloColors.paperSurface,
+                  backgroundColor: NostraColors.primaryInk,
+                  foregroundColor: NostraColors.paperSurface,
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),

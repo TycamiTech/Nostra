@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../core/localization/app_strings.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 import '../../reader/data/reader_repository.dart';
 import '../../reader/models/sticky_note.dart';
 
@@ -120,7 +120,7 @@ class StickyNoteWidget extends StatelessWidget {
       style: GoogleFonts.caveat(
         fontSize: note.fontSize,
         fontWeight: FontWeight.w600,
-        color: MirelloColors.primaryInk,
+        color: NostraColors.primaryInk,
         height: 1.25,
       ),
     );
@@ -160,7 +160,7 @@ class StickyNoteWidget extends StatelessWidget {
                       Icon(
                         LucideIcons.gripHorizontal,
                         size: 12,
-                        color: MirelloColors.primaryInk.withValues(alpha: 0.6),
+                        color: NostraColors.primaryInk.withValues(alpha: 0.6),
                       ),
                       const SizedBox(width: 4),
                       Text(
@@ -168,7 +168,7 @@ class StickyNoteWidget extends StatelessWidget {
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 9.5,
                           fontWeight: FontWeight.w700,
-                          color: MirelloColors.primaryInk.withValues(alpha: 0.75),
+                          color: NostraColors.primaryInk.withValues(alpha: 0.75),
                           letterSpacing: 0.5,
                         ),
                       ),
@@ -180,7 +180,7 @@ class StickyNoteWidget extends StatelessWidget {
                       child: Icon(
                         LucideIcons.x,
                         size: 13,
-                        color: MirelloColors.primaryInk.withValues(alpha: 0.75),
+                        color: NostraColors.primaryInk.withValues(alpha: 0.75),
                       ),
                     ),
                 ],
@@ -235,7 +235,7 @@ class StickyNoteWidget extends StatelessWidget {
                       Icon(
                         LucideIcons.gripHorizontal,
                         size: 10,
-                        color: MirelloColors.primaryInk.withValues(alpha: 0.65),
+                        color: NostraColors.primaryInk.withValues(alpha: 0.65),
                       ),
                       const SizedBox(width: 3),
                       Text(
@@ -243,7 +243,7 @@ class StickyNoteWidget extends StatelessWidget {
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 9,
                           fontWeight: FontWeight.w700,
-                          color: MirelloColors.primaryInk.withValues(alpha: 0.8),
+                          color: NostraColors.primaryInk.withValues(alpha: 0.8),
                         ),
                       ),
                     ],
@@ -255,7 +255,7 @@ class StickyNoteWidget extends StatelessWidget {
                     child: Icon(
                       LucideIcons.x,
                       size: 14,
-                      color: MirelloColors.primaryInk.withValues(alpha: 0.65),
+                      color: NostraColors.primaryInk.withValues(alpha: 0.65),
                     ),
                   ),
               ],
@@ -308,7 +308,7 @@ class StickyNoteWidget extends StatelessWidget {
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 9,
                           fontWeight: FontWeight.w700,
-                          color: MirelloColors.primaryInk.withValues(alpha: 0.65),
+                          color: NostraColors.primaryInk.withValues(alpha: 0.65),
                           letterSpacing: 0.5,
                         ),
                       ),
@@ -320,7 +320,7 @@ class StickyNoteWidget extends StatelessWidget {
                             child: Icon(
                               LucideIcons.x,
                               size: 13,
-                              color: MirelloColors.primaryInk.withValues(alpha: 0.65),
+                              color: NostraColors.primaryInk.withValues(alpha: 0.65),
                             ),
                           ),
                         ),
@@ -379,7 +379,7 @@ class StickyNoteWidget extends StatelessWidget {
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 9,
                       fontWeight: FontWeight.w700,
-                      color: MirelloColors.primaryInk.withValues(alpha: 0.6),
+                      color: NostraColors.primaryInk.withValues(alpha: 0.6),
                       letterSpacing: 0.5,
                     ),
                   ),
@@ -389,7 +389,7 @@ class StickyNoteWidget extends StatelessWidget {
                       child: Icon(
                         LucideIcons.x,
                         size: 13,
-                        color: MirelloColors.primaryInk.withValues(alpha: 0.6),
+                        color: NostraColors.primaryInk.withValues(alpha: 0.6),
                       ),
                     ),
                 ],
@@ -587,7 +587,7 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
                       const Icon(
                         LucideIcons.stickyNote,
                         size: 18,
-                        color: MirelloColors.primaryInk,
+                        color: NostraColors.primaryInk,
                       ),
                       const SizedBox(width: 8),
                       Text(
@@ -597,7 +597,7 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
-                          color: MirelloColors.primaryInk,
+                          color: NostraColors.primaryInk,
                         ),
                       ),
                     ],
@@ -607,7 +607,7 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
                     icon: const Icon(
                       LucideIcons.x,
                       size: 18,
-                      color: MirelloColors.secondaryMuted,
+                      color: NostraColors.secondaryMuted,
                     ),
                     onPressed: () => Navigator.pop(context),
                   ),
@@ -619,10 +619,10 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
                 decoration: BoxDecoration(
-                  color: MirelloColors.paperSurface,
+                  color: NostraColors.paperSurface,
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
-                    color: MirelloColors.borderCard,
+                    color: NostraColors.borderCard,
                     width: 0.8,
                   ),
                 ),
@@ -653,7 +653,7 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
                   style: GoogleFonts.caveat(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
-                    color: MirelloColors.primaryInk,
+                    color: NostraColors.primaryInk,
                     height: 1.25,
                   ),
                   decoration: InputDecoration(
@@ -662,7 +662,7 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
                         : 'Write quick formulas or study notes...',
                     hintStyle: GoogleFonts.caveat(
                       fontSize: 18,
-                      color: MirelloColors.secondaryMuted,
+                      color: NostraColors.secondaryMuted,
                     ),
                     border: InputBorder.none,
                     isDense: true,
@@ -677,7 +677,7 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 11,
                   fontWeight: FontWeight.w700,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                   letterSpacing: 0.6,
                 ),
               ),
@@ -706,8 +706,8 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
                         shape: BoxShape.circle,
                         border: Border.all(
                           color: isSelected
-                              ? MirelloColors.primaryInk
-                              : MirelloColors.borderCard,
+                              ? NostraColors.primaryInk
+                              : NostraColors.borderCard,
                           width: isSelected ? 2.4 : 1.0,
                         ),
                         boxShadow: isSelected
@@ -725,7 +725,7 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
                               child: Icon(
                                 LucideIcons.check,
                                 size: 16,
-                                color: MirelloColors.primaryInk,
+                                color: NostraColors.primaryInk,
                               ),
                             )
                           : null,
@@ -741,7 +741,7 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 11,
                   fontWeight: FontWeight.w700,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                   letterSpacing: 0.6,
                 ),
               ),
@@ -781,7 +781,7 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 11,
                   fontWeight: FontWeight.w700,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                   letterSpacing: 0.6,
                 ),
               ),
@@ -837,7 +837,7 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
                   const Spacer(),
                   TextButton(
                     style: TextButton.styleFrom(
-                      foregroundColor: MirelloColors.secondaryMuted,
+                      foregroundColor: NostraColors.secondaryMuted,
                       padding: const EdgeInsets.symmetric(
                         horizontal: 12,
                         vertical: 8,
@@ -855,8 +855,8 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
                   const SizedBox(width: 6),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: MirelloColors.primaryInk,
-                      foregroundColor: MirelloColors.paperSurface,
+                      backgroundColor: NostraColors.primaryInk,
+                      foregroundColor: NostraColors.paperSurface,
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -904,13 +904,13 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
           padding: const EdgeInsets.symmetric(vertical: 8),
           decoration: BoxDecoration(
             color: isSelected
-                ? MirelloColors.primaryInk
-                : MirelloColors.paperSurface,
+                ? NostraColors.primaryInk
+                : NostraColors.paperSurface,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
               color: isSelected
-                  ? MirelloColors.primaryInk
-                  : MirelloColors.borderCard,
+                  ? NostraColors.primaryInk
+                  : NostraColors.borderCard,
               width: 1,
             ),
           ),
@@ -920,7 +920,7 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
               Icon(
                 icon,
                 size: 16,
-                color: isSelected ? Colors.white : MirelloColors.primaryInk,
+                color: isSelected ? Colors.white : NostraColors.primaryInk,
               ),
               const SizedBox(height: 3),
               Text(
@@ -928,7 +928,7 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 10.5,
                   fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
-                  color: isSelected ? Colors.white : MirelloColors.primaryInk,
+                  color: isSelected ? Colors.white : NostraColors.primaryInk,
                 ),
               ),
             ],
@@ -955,13 +955,13 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
           padding: const EdgeInsets.symmetric(vertical: 8),
           decoration: BoxDecoration(
             color: isSelected
-                ? MirelloColors.primaryInk
-                : MirelloColors.paperSurface,
+                ? NostraColors.primaryInk
+                : NostraColors.paperSurface,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
               color: isSelected
-                  ? MirelloColors.primaryInk
-                  : MirelloColors.borderCard,
+                  ? NostraColors.primaryInk
+                  : NostraColors.borderCard,
               width: 1,
             ),
           ),
@@ -971,7 +971,7 @@ class _StickyNoteEditorModalState extends State<StickyNoteEditorModal> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 11.5,
                 fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
-                color: isSelected ? Colors.white : MirelloColors.primaryInk,
+                color: isSelected ? Colors.white : NostraColors.primaryInk,
               ),
             ),
           ),

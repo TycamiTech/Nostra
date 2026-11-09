@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../core/localization/app_strings.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 import '../../../core/widgets/doodle_illustrations.dart';
 import '../data/notebook_repository.dart';
 import '../models/subject_notebook.dart';
@@ -33,10 +33,10 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
   int _selectedDoodleIndex = 0;
 
   List<(String, String, Color)> get _colorOptions => [
-    ('#E8E1EB', 'Lavender', MirelloColors.pastelLavender),
-    ('#DCE2EA', AppStrings.isIndonesian ? 'Biru Muda' : 'Soft Blue', MirelloColors.pastelSoftBlue),
-    ('#EFE5CD', 'Ochre', MirelloColors.pastelWarmOchre),
-    ('#DCE6DF', 'Sage Green', MirelloColors.pastelSageGreen),
+    ('#E8E1EB', 'Lavender', NostraColors.pastelLavender),
+    ('#DCE2EA', AppStrings.isIndonesian ? 'Biru Muda' : 'Soft Blue', NostraColors.pastelSoftBlue),
+    ('#EFE5CD', 'Ochre', NostraColors.pastelWarmOchre),
+    ('#DCE6DF', 'Sage Green', NostraColors.pastelSageGreen),
   ];
 
   List<(SubjectDoodleType, String)> get _doodleOptions => [
@@ -60,7 +60,7 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
     if (title.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          backgroundColor: MirelloColors.deleteRed,
+          backgroundColor: NostraColors.deleteRed,
           behavior: SnackBarBehavior.floating,
           content: Text(
             AppStrings.subjectNameEmptyError,
@@ -100,12 +100,12 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
     navigator.pop();
     messenger.showSnackBar(
       SnackBar(
-        backgroundColor: MirelloColors.primaryInk,
+        backgroundColor: NostraColors.primaryInk,
         behavior: SnackBarBehavior.floating,
         content: Text(
           AppStrings.subjectAddedSuccess(title),
           style: GoogleFonts.plusJakartaSans(
-            color: MirelloColors.paperSurface,
+            color: NostraColors.paperSurface,
             fontSize: 13,
           ),
         ),
@@ -122,7 +122,7 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
       child: Container(
         padding: const EdgeInsets.fromLTRB(22, 16, 22, 28),
         decoration: const BoxDecoration(
-          color: MirelloColors.paperSurface,
+          color: NostraColors.paperSurface,
           borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
         ),
         child: SingleChildScrollView(
@@ -135,7 +135,7 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
                   width: 36,
                   height: 4,
                   decoration: BoxDecoration(
-                    color: MirelloColors.borderSubtle,
+                    color: NostraColors.borderSubtle,
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),
@@ -146,7 +146,7 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(height: 6),
@@ -154,7 +154,7 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
                 AppStrings.addNewSubjectSubtitle,
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 12.5,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                 ),
               ),
               const SizedBox(height: 20),
@@ -165,7 +165,7 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(height: 8),
@@ -173,13 +173,13 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
                 controller: _titleController,
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 14,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
                 decoration: InputDecoration(
                   hintText: AppStrings.subjectNameHint,
                   hintStyle: GoogleFonts.plusJakartaSans(
                     fontSize: 13,
-                    color: MirelloColors.secondaryMuted,
+                    color: NostraColors.secondaryMuted,
                   ),
                   filled: true,
                   fillColor: const Color(0xFFEAE8E1),
@@ -201,7 +201,7 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(height: 8),
@@ -209,14 +209,14 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
                 controller: _codeController,
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 14,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
                 textCapitalization: TextCapitalization.characters,
                 decoration: InputDecoration(
                   hintText: AppStrings.shortCodeHint,
                   hintStyle: GoogleFonts.plusJakartaSans(
                     fontSize: 13,
-                    color: MirelloColors.secondaryMuted,
+                    color: NostraColors.secondaryMuted,
                   ),
                   filled: true,
                   fillColor: const Color(0xFFEAE8E1),
@@ -238,7 +238,7 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(height: 10),
@@ -263,8 +263,8 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
                             color: isSelected
-                                ? MirelloColors.primaryInk
-                                : MirelloColors.borderCard,
+                                ? NostraColors.primaryInk
+                                : NostraColors.borderCard,
                             width: isSelected ? 2.0 : 1.0,
                           ),
                         ),
@@ -276,7 +276,7 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
                               fontWeight: isSelected
                                   ? FontWeight.w700
                                   : FontWeight.w500,
-                              color: MirelloColors.primaryInk,
+                              color: NostraColors.primaryInk,
                             ),
                           ),
                         ),
@@ -293,7 +293,7 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(height: 10),
@@ -316,12 +316,12 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
                         decoration: BoxDecoration(
                           color: isSelected
                               ? _colorOptions[_selectedColorIndex].$3
-                              : MirelloColors.scaffoldBackground,
+                              : NostraColors.scaffoldBackground,
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
                             color: isSelected
-                                ? MirelloColors.primaryInk
-                                : MirelloColors.borderCard,
+                                ? NostraColors.primaryInk
+                                : NostraColors.borderCard,
                             width: isSelected ? 2.0 : 1.0,
                           ),
                         ),
@@ -340,7 +340,7 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
                                 fontWeight: isSelected
                                     ? FontWeight.w700
                                     : FontWeight.w500,
-                                color: MirelloColors.primaryInk,
+                                color: NostraColors.primaryInk,
                               ),
                             ),
                           ],
@@ -357,8 +357,8 @@ class _AddSubjectModalState extends State<AddSubjectModal> {
                 width: double.infinity,
                 child: ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: MirelloColors.primaryInk,
-                    foregroundColor: MirelloColors.paperSurface,
+                    backgroundColor: NostraColors.primaryInk,
+                    foregroundColor: NostraColors.paperSurface,
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),

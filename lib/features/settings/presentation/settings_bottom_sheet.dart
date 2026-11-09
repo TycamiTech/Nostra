@@ -4,7 +4,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../core/localization/app_strings.dart';
 import '../../../core/services/app_settings_service.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 import '../../backup/presentation/vault_backup_sheet.dart';
 import '../../library/presentation/prompt_guide_sheet.dart';
 import 'app_mode_screen.dart';
@@ -38,7 +38,7 @@ class SettingsBottomSheet extends StatelessWidget {
         return Container(
           padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
           decoration: const BoxDecoration(
-            color: MirelloColors.paperSurface,
+            color: NostraColors.paperSurface,
             borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
           ),
           child: Column(
@@ -50,7 +50,7 @@ class SettingsBottomSheet extends StatelessWidget {
                   width: 36,
                   height: 4,
                   decoration: BoxDecoration(
-                    color: MirelloColors.borderSubtle,
+                    color: NostraColors.borderSubtle,
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),
@@ -61,7 +61,7 @@ class SettingsBottomSheet extends StatelessWidget {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(height: 4),
@@ -69,7 +69,7 @@ class SettingsBottomSheet extends StatelessWidget {
                 AppStrings.chooseLanguageDesc,
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 12.5,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                 ),
               ),
               const SizedBox(height: 16),
@@ -124,12 +124,12 @@ class SettingsBottomSheet extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           decoration: BoxDecoration(
-            color: isSelected ? MirelloColors.tabPillBackground : Colors.white,
+            color: isSelected ? NostraColors.tabPillBackground : Colors.white,
             borderRadius: BorderRadius.circular(14),
             border: Border.all(
               color: isSelected
-                  ? MirelloColors.primaryInk
-                  : MirelloColors.borderCard,
+                  ? NostraColors.primaryInk
+                  : NostraColors.borderCard,
               width: isSelected ? 1.4 : 0.9,
             ),
           ),
@@ -146,7 +146,7 @@ class SettingsBottomSheet extends StatelessWidget {
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 14,
                     fontWeight: isSelected ? FontWeight.w700 : FontWeight.w600,
-                    color: MirelloColors.primaryInk,
+                    color: NostraColors.primaryInk,
                   ),
                 ),
               ),
@@ -154,7 +154,7 @@ class SettingsBottomSheet extends StatelessWidget {
                 const Icon(
                   LucideIcons.check,
                   size: 18,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
             ],
           ),
@@ -171,7 +171,7 @@ class SettingsBottomSheet extends StatelessWidget {
         return Container(
           padding: const EdgeInsets.fromLTRB(20, 16, 20, 28),
           decoration: const BoxDecoration(
-            color: MirelloColors.paperSurface,
+            color: NostraColors.paperSurface,
             borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
           ),
           child: Column(
@@ -183,7 +183,7 @@ class SettingsBottomSheet extends StatelessWidget {
                   width: 36,
                   height: 4,
                   decoration: BoxDecoration(
-                    color: MirelloColors.borderSubtle,
+                    color: NostraColors.borderSubtle,
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),
@@ -194,7 +194,7 @@ class SettingsBottomSheet extends StatelessWidget {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(height: 14),
@@ -213,7 +213,7 @@ class SettingsBottomSheet extends StatelessWidget {
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 13.5,
                             fontWeight: FontWeight.w700,
-                            color: MirelloColors.primaryInk,
+                            color: NostraColors.primaryInk,
                           ),
                         ),
                         const SizedBox(width: 8),
@@ -270,7 +270,7 @@ class SettingsBottomSheet extends StatelessWidget {
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 13.5,
                         fontWeight: FontWeight.w700,
-                        color: MirelloColors.primaryInk,
+                        color: NostraColors.primaryInk,
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -380,7 +380,7 @@ class SettingsBottomSheet extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(14),
             border: Border.all(
-              color: MirelloColors.borderCard,
+              color: NostraColors.borderCard,
               width: 0.9,
             ),
           ),
@@ -389,17 +389,17 @@ class SettingsBottomSheet extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: MirelloColors.scaffoldBackground,
+                  color: NostraColors.scaffoldBackground,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    color: MirelloColors.borderCard,
+                    color: NostraColors.borderCard,
                     width: 0.8,
                   ),
                 ),
                 child: Icon(
                   icon,
                   size: 18,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(width: 12),
@@ -415,7 +415,7 @@ class SettingsBottomSheet extends StatelessWidget {
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 13.5,
                           fontWeight: FontWeight.w700,
-                          color: MirelloColors.primaryInk,
+                          color: NostraColors.primaryInk,
                         ),
                       ),
                     const SizedBox(height: 2),
@@ -423,7 +423,7 @@ class SettingsBottomSheet extends StatelessWidget {
                       subtitle,
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 11,
-                        color: MirelloColors.secondaryMuted,
+                        color: NostraColors.secondaryMuted,
                       ),
                     ),
                   ],
@@ -432,7 +432,7 @@ class SettingsBottomSheet extends StatelessWidget {
               const Icon(
                 LucideIcons.chevronRight,
                 size: 16,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
               ),
             ],
           ),

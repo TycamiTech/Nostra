@@ -4,7 +4,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../core/localization/app_strings.dart';
 import '../../../core/services/app_settings_service.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 import '../../../core/widgets/doodle_illustrations.dart';
 import '../../library/data/notebook_repository.dart';
 import '../../library/models/subject_notebook.dart';
@@ -52,21 +52,21 @@ class _TrashScreenState extends State<TrashScreen>
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: MirelloColors.paperSurface,
+        backgroundColor: NostraColors.paperSurface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Text(
           AppStrings.emptyTrashPrompt,
           style: GoogleFonts.plusJakartaSans(
             fontWeight: FontWeight.w700,
             fontSize: 16,
-            color: MirelloColors.primaryInk,
+            color: NostraColors.primaryInk,
           ),
         ),
         content: Text(
           AppStrings.emptyTrashPromptDesc,
           style: GoogleFonts.plusJakartaSans(
             fontSize: 13,
-            color: MirelloColors.secondaryMuted,
+            color: NostraColors.secondaryMuted,
             height: 1.4,
           ),
         ),
@@ -77,13 +77,13 @@ class _TrashScreenState extends State<TrashScreen>
               AppStrings.cancel,
               style: GoogleFonts.plusJakartaSans(
                 fontWeight: FontWeight.w600,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
               ),
             ),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: MirelloColors.deleteRed,
+              backgroundColor: NostraColors.deleteRed,
               foregroundColor: Colors.white,
               elevation: 0,
               shape: RoundedRectangleBorder(
@@ -120,21 +120,21 @@ class _TrashScreenState extends State<TrashScreen>
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: MirelloColors.paperSurface,
+        backgroundColor: NostraColors.paperSurface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Text(
           AppStrings.deletePermanentPrompt,
           style: GoogleFonts.plusJakartaSans(
             fontWeight: FontWeight.w700,
             fontSize: 16,
-            color: MirelloColors.primaryInk,
+            color: NostraColors.primaryInk,
           ),
         ),
         content: Text(
           AppStrings.deletePermanentDesc(title),
           style: GoogleFonts.plusJakartaSans(
             fontSize: 13,
-            color: MirelloColors.secondaryMuted,
+            color: NostraColors.secondaryMuted,
             height: 1.4,
           ),
         ),
@@ -145,13 +145,13 @@ class _TrashScreenState extends State<TrashScreen>
               AppStrings.cancel,
               style: GoogleFonts.plusJakartaSans(
                 fontWeight: FontWeight.w600,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
               ),
             ),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: MirelloColors.deleteRed,
+              backgroundColor: NostraColors.deleteRed,
               foregroundColor: Colors.white,
               elevation: 0,
               shape: RoundedRectangleBorder(
@@ -194,14 +194,14 @@ class _TrashScreenState extends State<TrashScreen>
         final hasAnyTrash = trashNotes.isNotEmpty || trashSubjects.isNotEmpty;
 
         return Scaffold(
-          backgroundColor: MirelloColors.scaffoldBackground,
+          backgroundColor: NostraColors.scaffoldBackground,
           appBar: AppBar(
-            backgroundColor: MirelloColors.scaffoldBackground,
+            backgroundColor: NostraColors.scaffoldBackground,
             elevation: 0,
             leading: IconButton(
               icon: const Icon(
                 LucideIcons.arrowLeft,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
                 size: 20,
               ),
               onPressed: () => Navigator.pop(context),
@@ -214,7 +214,7 @@ class _TrashScreenState extends State<TrashScreen>
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
-                    color: MirelloColors.primaryInk,
+                    color: NostraColors.primaryInk,
                   ),
                 ),
                 Text(
@@ -222,7 +222,7 @@ class _TrashScreenState extends State<TrashScreen>
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 11.5,
                     fontWeight: FontWeight.w400,
-                    color: MirelloColors.secondaryMuted,
+                    color: NostraColors.secondaryMuted,
                   ),
                 ),
               ],
@@ -234,14 +234,14 @@ class _TrashScreenState extends State<TrashScreen>
                   icon: const Icon(
                     LucideIcons.trash2,
                     size: 15,
-                    color: MirelloColors.deleteRed,
+                    color: NostraColors.deleteRed,
                   ),
                   label: Text(
                     AppStrings.empty,
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 12.5,
                       fontWeight: FontWeight.w700,
-                      color: MirelloColors.deleteRed,
+                      color: NostraColors.deleteRed,
                     ),
                   ),
                 ),
@@ -251,7 +251,7 @@ class _TrashScreenState extends State<TrashScreen>
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
                 decoration: BoxDecoration(
-                  color: MirelloColors.tabPillBackground,
+                  color: NostraColors.tabPillBackground,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: TabBar(
@@ -269,8 +269,8 @@ class _TrashScreenState extends State<TrashScreen>
                   ),
                   indicatorSize: TabBarIndicatorSize.tab,
                   dividerColor: Colors.transparent,
-                  labelColor: MirelloColors.primaryInk,
-                  unselectedLabelColor: MirelloColors.secondaryMuted,
+                  labelColor: NostraColors.primaryInk,
+                  unselectedLabelColor: NostraColors.secondaryMuted,
                   labelStyle: GoogleFonts.plusJakartaSans(
                     fontSize: 12.5,
                     fontWeight: FontWeight.w700,
@@ -297,7 +297,7 @@ class _TrashScreenState extends State<TrashScreen>
                   color: const Color(0xFFF7F3E8),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: MirelloColors.borderSubtle,
+                    color: NostraColors.borderSubtle,
                     width: 0.9,
                   ),
                 ),
@@ -306,7 +306,7 @@ class _TrashScreenState extends State<TrashScreen>
                     const Icon(
                       LucideIcons.info,
                       size: 16,
-                      color: MirelloColors.secondaryMuted,
+                      color: NostraColors.secondaryMuted,
                     ),
                     const SizedBox(width: 10),
                     Expanded(
@@ -314,7 +314,7 @@ class _TrashScreenState extends State<TrashScreen>
                         AppStrings.trashEmptyDesc,
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 11.5,
-                          color: MirelloColors.secondaryMuted,
+                          color: NostraColors.secondaryMuted,
                           height: 1.35,
                         ),
                       ),
@@ -367,7 +367,7 @@ class _TrashScreenState extends State<TrashScreen>
             color: cardColor,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: MirelloColors.borderCard,
+              color: NostraColors.borderCard,
               width: 0.9,
             ),
           ),
@@ -390,7 +390,7 @@ class _TrashScreenState extends State<TrashScreen>
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 14.5,
                               fontWeight: FontWeight.w700,
-                              color: MirelloColors.primaryInk,
+                              color: NostraColors.primaryInk,
                             ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -412,7 +412,7 @@ class _TrashScreenState extends State<TrashScreen>
                                 const Icon(
                                   LucideIcons.clock,
                                   size: 11,
-                                  color: MirelloColors.deleteRed,
+                                  color: NostraColors.deleteRed,
                                 ),
                                 const SizedBox(width: 4),
                                 Text(
@@ -420,7 +420,7 @@ class _TrashScreenState extends State<TrashScreen>
                                   style: GoogleFonts.plusJakartaSans(
                                     fontSize: 10.5,
                                     fontWeight: FontWeight.w700,
-                                    color: MirelloColors.deleteRed,
+                                    color: NostraColors.deleteRed,
                                   ),
                                 ),
                               ],
@@ -437,7 +437,7 @@ class _TrashScreenState extends State<TrashScreen>
                           icon: const Icon(
                             LucideIcons.rotateCcw,
                             size: 18,
-                            color: MirelloColors.primaryInk,
+                            color: NostraColors.primaryInk,
                           ),
                           tooltip: AppStrings.restore,
                           onPressed: () async {
@@ -456,7 +456,7 @@ class _TrashScreenState extends State<TrashScreen>
                           icon: const Icon(
                             LucideIcons.trash2,
                             size: 18,
-                            color: MirelloColors.deleteRed,
+                            color: NostraColors.deleteRed,
                           ),
                           tooltip: AppStrings.deletePermanently,
                           onPressed: () {
@@ -484,7 +484,7 @@ class _TrashScreenState extends State<TrashScreen>
                           : note.content,
                       baseStyle: GoogleFonts.plusJakartaSans(
                         fontSize: 12.5,
-                        color: MirelloColors.secondaryMuted,
+                        color: NostraColors.secondaryMuted,
                         height: 1.35,
                       ),
                     ),
@@ -525,7 +525,7 @@ class _TrashScreenState extends State<TrashScreen>
             color: notebook.cardColor,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: MirelloColors.borderCard,
+              color: NostraColors.borderCard,
               width: 0.9,
             ),
           ),
@@ -559,7 +559,7 @@ class _TrashScreenState extends State<TrashScreen>
                                     style: GoogleFonts.plusJakartaSans(
                                       fontSize: 10,
                                       fontWeight: FontWeight.w700,
-                                      color: MirelloColors.primaryInk,
+                                      color: NostraColors.primaryInk,
                                     ),
                                   ),
                                 ),
@@ -578,7 +578,7 @@ class _TrashScreenState extends State<TrashScreen>
                                     style: GoogleFonts.plusJakartaSans(
                                       fontSize: 10,
                                       fontWeight: FontWeight.w700,
-                                      color: MirelloColors.deleteRed,
+                                      color: NostraColors.deleteRed,
                                     ),
                                   ),
                                 ),
@@ -590,7 +590,7 @@ class _TrashScreenState extends State<TrashScreen>
                               style: GoogleFonts.plusJakartaSans(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w700,
-                                color: MirelloColors.primaryInk,
+                                color: NostraColors.primaryInk,
                               ),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
@@ -601,9 +601,9 @@ class _TrashScreenState extends State<TrashScreen>
                               children: [
                                 OutlinedButton.icon(
                                   style: OutlinedButton.styleFrom(
-                                    foregroundColor: MirelloColors.primaryInk,
+                                    foregroundColor: NostraColors.primaryInk,
                                     side: const BorderSide(
-                                      color: MirelloColors.borderCard,
+                                      color: NostraColors.borderCard,
                                     ),
                                     padding: const EdgeInsets.symmetric(
                                       horizontal: 10,
@@ -642,9 +642,9 @@ class _TrashScreenState extends State<TrashScreen>
                                 const SizedBox(width: 8),
                                 OutlinedButton.icon(
                                   style: OutlinedButton.styleFrom(
-                                    foregroundColor: MirelloColors.deleteRed,
+                                    foregroundColor: NostraColors.deleteRed,
                                     side: BorderSide(
-                                      color: MirelloColors.deleteRed.withValues(alpha: 0.2),
+                                      color: NostraColors.deleteRed.withValues(alpha: 0.2),
                                     ),
                                     padding: const EdgeInsets.symmetric(
                                       horizontal: 10,
@@ -720,14 +720,14 @@ class _TrashScreenState extends State<TrashScreen>
                 color: Colors.white,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: MirelloColors.borderCard,
+                  color: NostraColors.borderCard,
                   width: 0.9,
                 ),
               ),
               child: const Icon(
                 LucideIcons.trash2,
                 size: 36,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
               ),
             ),
             const SizedBox(height: 18),
@@ -736,7 +736,7 @@ class _TrashScreenState extends State<TrashScreen>
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
               textAlign: TextAlign.center,
             ),
@@ -745,7 +745,7 @@ class _TrashScreenState extends State<TrashScreen>
               subtitle,
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 12.5,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
                 height: 1.4,
               ),
               textAlign: TextAlign.center,

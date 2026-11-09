@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:mirello_utbk/core/services/app_settings_service.dart';
+import 'package:nostra/core/services/app_settings_service.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

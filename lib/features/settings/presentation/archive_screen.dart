@@ -4,7 +4,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../core/localization/app_strings.dart';
 import '../../../core/services/app_settings_service.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 import '../../../core/utils/date_formatter.dart';
 import '../../../core/widgets/doodle_illustrations.dart';
 import '../../library/data/notebook_repository.dart';
@@ -45,14 +45,14 @@ class _ArchiveScreenState extends State<ArchiveScreen>
       valueListenable: AppSettingsService.instance.languageNotifier,
       builder: (context, language, _) {
         return Scaffold(
-      backgroundColor: MirelloColors.scaffoldBackground,
+      backgroundColor: NostraColors.scaffoldBackground,
       appBar: AppBar(
-        backgroundColor: MirelloColors.scaffoldBackground,
+        backgroundColor: NostraColors.scaffoldBackground,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(
             LucideIcons.arrowLeft,
-            color: MirelloColors.primaryInk,
+            color: NostraColors.primaryInk,
             size: 20,
           ),
           onPressed: () => Navigator.pop(context),
@@ -65,7 +65,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
             ),
             Text(
@@ -73,7 +73,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 11.5,
                 fontWeight: FontWeight.w400,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
               ),
             ),
           ],
@@ -83,7 +83,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
             decoration: BoxDecoration(
-              color: MirelloColors.tabPillBackground,
+              color: NostraColors.tabPillBackground,
               borderRadius: BorderRadius.circular(12),
             ),
             child: TabBar(
@@ -101,8 +101,8 @@ class _ArchiveScreenState extends State<ArchiveScreen>
               ),
               indicatorSize: TabBarIndicatorSize.tab,
               dividerColor: Colors.transparent,
-              labelColor: MirelloColors.primaryInk,
-              unselectedLabelColor: MirelloColors.secondaryMuted,
+              labelColor: NostraColors.primaryInk,
+              unselectedLabelColor: NostraColors.secondaryMuted,
               labelStyle: GoogleFonts.plusJakartaSans(
                 fontSize: 12.5,
                 fontWeight: FontWeight.w700,
@@ -173,7 +173,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
             color: cardColor,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: MirelloColors.borderCard,
+              color: NostraColors.borderCard,
               width: 0.9,
             ),
           ),
@@ -204,7 +204,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 14.5,
                               fontWeight: FontWeight.w700,
-                              color: MirelloColors.primaryInk,
+                              color: NostraColors.primaryInk,
                             ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -215,7 +215,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
                           icon: const Icon(
                             LucideIcons.archiveRestore,
                             size: 18,
-                            color: MirelloColors.primaryInk,
+                            color: NostraColors.primaryInk,
                           ),
                           tooltip: AppStrings.unarchiveNote,
                           onPressed: () async {
@@ -234,7 +234,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
                           icon: const Icon(
                             LucideIcons.trash2,
                             size: 18,
-                            color: MirelloColors.deleteRed,
+                            color: NostraColors.deleteRed,
                           ),
                           tooltip: AppStrings.moveToTrash,
                           onPressed: () async {
@@ -261,7 +261,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
                               : note.content,
                           baseStyle: GoogleFonts.plusJakartaSans(
                             fontSize: 12.5,
-                            color: MirelloColors.secondaryMuted,
+                            color: NostraColors.secondaryMuted,
                             height: 1.35,
                           ),
                         ),
@@ -273,14 +273,14 @@ class _ArchiveScreenState extends State<ArchiveScreen>
                         const Icon(
                           LucideIcons.clock,
                           size: 12,
-                          color: MirelloColors.secondaryMuted,
+                          color: NostraColors.secondaryMuted,
                         ),
                         const SizedBox(width: 4),
                         Text(
                           _formatDate(note.updatedAt),
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 11,
-                            color: MirelloColors.secondaryMuted,
+                            color: NostraColors.secondaryMuted,
                           ),
                         ),
                       ],
@@ -324,7 +324,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
             color: notebook.cardColor,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: MirelloColors.borderCard,
+              color: NostraColors.borderCard,
               width: 0.9,
             ),
           ),
@@ -370,7 +370,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
                                         style: GoogleFonts.plusJakartaSans(
                                           fontSize: 10,
                                           fontWeight: FontWeight.w700,
-                                          color: MirelloColors.primaryInk,
+                                          color: NostraColors.primaryInk,
                                         ),
                                       ),
                                     ),
@@ -381,7 +381,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
                                       icon: const Icon(
                                         LucideIcons.archiveRestore,
                                         size: 18,
-                                        color: MirelloColors.primaryInk,
+                                        color: NostraColors.primaryInk,
                                       ),
                                       tooltip: AppStrings.unarchiveNote,
                                       onPressed: () async {
@@ -409,7 +409,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
                                       icon: const Icon(
                                         LucideIcons.trash2,
                                         size: 18,
-                                        color: MirelloColors.deleteRed,
+                                        color: NostraColors.deleteRed,
                                       ),
                                       tooltip: AppStrings.moveToTrash,
                                       onPressed: () async {
@@ -438,7 +438,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
                                   style: GoogleFonts.plusJakartaSans(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,
-                                    color: MirelloColors.primaryInk,
+                                    color: NostraColors.primaryInk,
                                   ),
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
@@ -448,7 +448,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
                                   '${AppStrings.pagePrefix} ${notebook.currentPage}/${notebook.totalPages}',
                                   style: GoogleFonts.plusJakartaSans(
                                     fontSize: 11.5,
-                                    color: MirelloColors.secondaryMuted,
+                                    color: NostraColors.secondaryMuted,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
@@ -499,14 +499,14 @@ class _ArchiveScreenState extends State<ArchiveScreen>
                 color: Colors.white,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: MirelloColors.borderCard,
+                  color: NostraColors.borderCard,
                   width: 0.9,
                 ),
               ),
               child: Icon(
                 icon,
                 size: 36,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
               ),
             ),
             const SizedBox(height: 18),
@@ -515,7 +515,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
               textAlign: TextAlign.center,
             ),
@@ -524,7 +524,7 @@ class _ArchiveScreenState extends State<ArchiveScreen>
               subtitle,
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 12.5,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
                 height: 1.4,
               ),
               textAlign: TextAlign.center,

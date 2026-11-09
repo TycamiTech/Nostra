@@ -3,7 +3,7 @@ import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 import '../../library/models/subject_notebook.dart';
 
 /// Data structure representing parsed blocks within an editorial page
@@ -132,8 +132,8 @@ class CalloutBlockElement extends PageElement {
 /// Nostra Editorial Markdown Engine (Fault-Tolerant, Rich, Adaptable & Comprehensive)
 /// Parses full CommonMark, GitHub-Flavored Markdown, 2D LaTeX Math,
 /// and custom editorial blocks into 100% native 120fps Flutter widgets.
-class MirelloMarkdownParser {
-  MirelloMarkdownParser._();
+class NostraMarkdownParser {
+  NostraMarkdownParser._();
 
   /// Pre-Parse Text Sanitizer:
   /// Automatically strips AI grounding/citation tags from Gemini / ChatGPT
@@ -237,7 +237,7 @@ class MirelloMarkdownParser {
     final steps = <MethodStepItem>[];
     int i = 0;
 
-    final bulletRegex = RegExp(r'^[-*+]\s+(.+)$');
+    final bulletRegex = RegExp(r'^[-*+•]\s+(.+)$');
     final numberedRegex = RegExp(r'^(\d+)[\.\)]\s+(.+)$');
     final blockquoteRegex = RegExp(r'^>\s?(.*)$');
     final tableDividerRegex = RegExp(r'^\|(?:\s*:?-+:?\s*\|)+\s*$');
@@ -345,7 +345,7 @@ class MirelloMarkdownParser {
     bool hasSeenBadge = false;
     bool hasSeenHeading = false;
 
-    final bulletRegex = RegExp(r'^[-*+]\s+(.+)$');
+    final bulletRegex = RegExp(r'^[-*+•]\s+(.+)$');
     final numberedRegex = RegExp(r'^(\d+)[\.\)]\s+(.+)$');
     final blockquoteRegex = RegExp(r'^>\s?(.*)$');
     final tableDividerRegex = RegExp(r'^\|(?:\s*:?-+:?\s*\|)+\s*$');
@@ -626,12 +626,12 @@ class MirelloMarkdownParser {
 }
 
 /// Native editorial page renderer widget with dynamic subject pastel background
-class MirelloEditorialPageView extends StatelessWidget {
+class NostraEditorialPageView extends StatelessWidget {
   final SubjectNotebook notebook;
   final String pageMarkdown;
   final int pageIndex;
 
-  const MirelloEditorialPageView({
+  const NostraEditorialPageView({
     super.key,
     required this.notebook,
     required this.pageMarkdown,
@@ -640,7 +640,7 @@ class MirelloEditorialPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final elements = MirelloMarkdownParser.parsePage(pageMarkdown);
+    final elements = NostraMarkdownParser.parsePage(pageMarkdown);
 
     return Container(
       color: notebook.cardColor, // Dynamic paper color matching subject pastel
@@ -670,7 +670,7 @@ class MirelloEditorialPageView extends StatelessWidget {
             color: Colors.white.withValues(alpha: 0.65),
             borderRadius: BorderRadius.circular(6),
             border: Border.all(
-              color: MirelloColors.borderCard,
+              color: NostraColors.borderCard,
               width: 0.8,
             ),
           ),
@@ -679,7 +679,7 @@ class MirelloEditorialPageView extends StatelessWidget {
             style: GoogleFonts.plusJakartaSans(
               fontSize: 10,
               fontWeight: FontWeight.w700,
-              color: MirelloColors.primaryInk,
+              color: NostraColors.primaryInk,
               letterSpacing: 0.5,
             ),
           ),
@@ -713,7 +713,7 @@ class MirelloEditorialPageView extends StatelessWidget {
         return const Padding(
           padding: EdgeInsets.symmetric(vertical: 4),
           child: Divider(
-            color: MirelloColors.borderCard,
+            color: NostraColors.borderCard,
             thickness: 1,
             height: 1,
           ),
@@ -745,7 +745,7 @@ class MirelloEditorialPageView extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             const Divider(
-              color: MirelloColors.borderCard,
+              color: NostraColors.borderCard,
               thickness: 1,
               height: 1,
             ),
@@ -834,7 +834,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                 width: 4.5,
                 height: 4.5,
                 decoration: const BoxDecoration(
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                   shape: BoxShape.circle,
                 ),
               ),
@@ -861,7 +861,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 13.5,
                     fontWeight: FontWeight.w700,
-                    color: MirelloColors.primaryInk,
+                    color: NostraColors.primaryInk,
                   ),
                 ),
               ),
@@ -884,10 +884,11 @@ class MirelloEditorialPageView extends StatelessWidget {
   }
 
   /// Comprehensive Inline Markdown & Math Parser:
-  /// Supports:
+  /// Supports nested formatting:
   /// - `==highlight==` (Strict double-equals yellow marker)
   /// - `$inline math$` (Real 2D LaTeX rendering via Math.tex)
   /// - `***bold italic***`, `**bold**`, `*italic*`, `~~strikethrough~~`, `` `inline code` ``
+  /// - HTML `<br>`, `<br/>`, `<br />` line break conversions
   Widget _buildRichText(
     String text, {
     double fontSize = 15.5,
@@ -895,6 +896,45 @@ class MirelloEditorialPageView extends StatelessWidget {
     bool isSerif = true,
     FontWeight? fontWeight,
   }) {
+    final defaultStyle = isSerif
+        ? GoogleFonts.lora(
+            fontSize: fontSize,
+            color: baseColor ?? NostraColors.primaryInk,
+            height: 1.65,
+            fontWeight: fontWeight,
+          )
+        : GoogleFonts.plusJakartaSans(
+            fontSize: fontSize,
+            color: baseColor ?? NostraColors.primaryInk,
+            height: 1.55,
+            fontWeight: fontWeight,
+          );
+
+    final normalized =
+        text.replaceAll(RegExp(r'<br\s*/?>', caseSensitive: false), '\n');
+    final spans = _buildInlineSpans(
+      normalized,
+      currentStyle: defaultStyle,
+      isSerif: isSerif,
+      fontSize: fontSize,
+      baseColor: baseColor,
+    );
+
+    return Text.rich(TextSpan(children: spans));
+  }
+
+  List<InlineSpan> _buildInlineSpans(
+    String text, {
+    required TextStyle currentStyle,
+    required bool isSerif,
+    required double fontSize,
+    Color? baseColor,
+    int depth = 0,
+  }) {
+    if (depth > 4 || text.isEmpty) {
+      return [TextSpan(text: text, style: currentStyle)];
+    }
+
     final spans = <InlineSpan>[];
     final inlineRegex = RegExp(
       r'(==[^=\n]+==|' // 1. ==highlight== (strictly double-equals)
@@ -910,33 +950,33 @@ class MirelloEditorialPageView extends StatelessWidget {
     );
 
     int lastMatchEnd = 0;
-    final defaultStyle = isSerif
-        ? GoogleFonts.lora(
-            fontSize: fontSize,
-            color: baseColor ?? MirelloColors.primaryInk,
-            height: 1.65,
-            fontWeight: fontWeight,
-          )
-        : GoogleFonts.plusJakartaSans(
-            fontSize: fontSize,
-            color: baseColor ?? MirelloColors.primaryInk,
-            height: 1.55,
-            fontWeight: fontWeight,
-          );
 
     for (final match in inlineRegex.allMatches(text)) {
       if (match.start > lastMatchEnd) {
         spans.add(TextSpan(
           text: text.substring(lastMatchEnd, match.start),
-          style: defaultStyle,
+          style: currentStyle,
         ));
       }
 
       final matchedText = match.group(0)!;
 
-      // 1. Yellow Highlight: ==...== (rounded stroke container)
+      // 1. Yellow Highlight: ==...== (rounded stroke container with nested children)
       if (matchedText.startsWith('==') && matchedText.endsWith('==')) {
         final innerText = matchedText.substring(2, matchedText.length - 2);
+        final highlightStyle = currentStyle.copyWith(
+          color: const Color(0xFF1E1E1E),
+          fontWeight: FontWeight.w700,
+        );
+        final innerSpans = _buildInlineSpans(
+          innerText,
+          currentStyle: highlightStyle,
+          isSerif: isSerif,
+          fontSize: fontSize,
+          baseColor: baseColor,
+          depth: depth + 1,
+        );
+
         spans.add(WidgetSpan(
           alignment: PlaceholderAlignment.middle,
           child: Container(
@@ -946,19 +986,8 @@ class MirelloEditorialPageView extends StatelessWidget {
               color: const Color(0xFFF6E08E),
               borderRadius: BorderRadius.circular(4),
             ),
-            child: Text(
-              innerText,
-              style: isSerif
-                  ? GoogleFonts.lora(
-                      fontSize: fontSize,
-                      fontWeight: FontWeight.w700,
-                      color: const Color(0xFF1E1E1E),
-                    )
-                  : GoogleFonts.plusJakartaSans(
-                      fontSize: fontSize,
-                      fontWeight: FontWeight.w700,
-                      color: const Color(0xFF1E1E1E),
-                    ),
+            child: Text.rich(
+              TextSpan(children: innerSpans),
             ),
           ),
         ));
@@ -975,13 +1004,15 @@ class MirelloEditorialPageView extends StatelessWidget {
             mathStyle: MathStyle.text,
             textStyle: TextStyle(
               fontSize: fontSize,
-              color: const Color(0xFF1E1E1E),
+              color: currentStyle.color ?? const Color(0xFF1E1E1E),
+              fontWeight: currentStyle.fontWeight,
             ),
             onErrorFallback: (err) => Text(
               latex,
               style: GoogleFonts.jetBrainsMono(
                 fontSize: fontSize * 0.9,
-                color: const Color(0xFF1E1E1E),
+                color: currentStyle.color ?? const Color(0xFF1E1E1E),
+                fontWeight: currentStyle.fontWeight,
               ),
             ),
           ),
@@ -996,10 +1027,10 @@ class MirelloEditorialPageView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
             margin: const EdgeInsets.symmetric(horizontal: 1.5),
             decoration: BoxDecoration(
-              color: MirelloColors.primaryInk.withValues(alpha: 0.08),
+              color: NostraColors.primaryInk.withValues(alpha: 0.08),
               borderRadius: BorderRadius.circular(4),
               border: Border.all(
-                color: MirelloColors.borderCard,
+                color: NostraColors.borderCard,
                 width: 0.7,
               ),
             ),
@@ -1008,7 +1039,7 @@ class MirelloEditorialPageView extends StatelessWidget {
               style: GoogleFonts.jetBrainsMono(
                 fontSize: fontSize * 0.88,
                 fontWeight: FontWeight.w600,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
             ),
           ),
@@ -1018,46 +1049,70 @@ class MirelloEditorialPageView extends StatelessWidget {
       else if ((matchedText.startsWith('***') && matchedText.endsWith('***')) ||
           (matchedText.startsWith('___') && matchedText.endsWith('___'))) {
         final innerText = matchedText.substring(3, matchedText.length - 3);
-        spans.add(TextSpan(
-          text: innerText,
-          style: defaultStyle.copyWith(
-            fontWeight: FontWeight.w700,
-            fontStyle: FontStyle.italic,
-          ),
-        ));
+        final nestedStyle = currentStyle.copyWith(
+          fontWeight: FontWeight.w700,
+          fontStyle: FontStyle.italic,
+        );
+        final innerSpans = _buildInlineSpans(
+          innerText,
+          currentStyle: nestedStyle,
+          isSerif: isSerif,
+          fontSize: fontSize,
+          baseColor: baseColor,
+          depth: depth + 1,
+        );
+        spans.add(TextSpan(children: innerSpans));
       }
       // 5. Bold (** or __)
       else if ((matchedText.startsWith('**') && matchedText.endsWith('**')) ||
           (matchedText.startsWith('__') && matchedText.endsWith('__'))) {
         final innerText = matchedText.substring(2, matchedText.length - 2);
-        spans.add(TextSpan(
-          text: innerText,
-          style: defaultStyle.copyWith(
-            fontWeight: FontWeight.w700,
-          ),
-        ));
+        final nestedStyle = currentStyle.copyWith(
+          fontWeight: FontWeight.w700,
+        );
+        final innerSpans = _buildInlineSpans(
+          innerText,
+          currentStyle: nestedStyle,
+          isSerif: isSerif,
+          fontSize: fontSize,
+          baseColor: baseColor,
+          depth: depth + 1,
+        );
+        spans.add(TextSpan(children: innerSpans));
       }
       // 6. Strikethrough (~~)
       else if (matchedText.startsWith('~~') && matchedText.endsWith('~~')) {
         final innerText = matchedText.substring(2, matchedText.length - 2);
-        spans.add(TextSpan(
-          text: innerText,
-          style: defaultStyle.copyWith(
-            decoration: TextDecoration.lineThrough,
-            decorationColor: baseColor ?? MirelloColors.primaryInk,
-          ),
-        ));
+        final nestedStyle = currentStyle.copyWith(
+          decoration: TextDecoration.lineThrough,
+          decorationColor: baseColor ?? NostraColors.primaryInk,
+        );
+        final innerSpans = _buildInlineSpans(
+          innerText,
+          currentStyle: nestedStyle,
+          isSerif: isSerif,
+          fontSize: fontSize,
+          baseColor: baseColor,
+          depth: depth + 1,
+        );
+        spans.add(TextSpan(children: innerSpans));
       }
       // 7. Italic (* or _)
       else if ((matchedText.startsWith('*') && matchedText.endsWith('*')) ||
           (matchedText.startsWith('_') && matchedText.endsWith('_'))) {
         final innerText = matchedText.substring(1, matchedText.length - 1);
-        spans.add(TextSpan(
-          text: innerText,
-          style: defaultStyle.copyWith(
-            fontStyle: FontStyle.italic,
-          ),
-        ));
+        final nestedStyle = currentStyle.copyWith(
+          fontStyle: FontStyle.italic,
+        );
+        final innerSpans = _buildInlineSpans(
+          innerText,
+          currentStyle: nestedStyle,
+          isSerif: isSerif,
+          fontSize: fontSize,
+          baseColor: baseColor,
+          depth: depth + 1,
+        );
+        spans.add(TextSpan(children: innerSpans));
       }
 
       lastMatchEnd = match.end;
@@ -1066,11 +1121,11 @@ class MirelloEditorialPageView extends StatelessWidget {
     if (lastMatchEnd < text.length) {
       spans.add(TextSpan(
         text: text.substring(lastMatchEnd),
-        style: defaultStyle,
+        style: currentStyle,
       ));
     }
 
-    return Text.rich(TextSpan(children: spans));
+    return spans;
   }
 
   /// Bullet List Renderer with beautiful circular bullets
@@ -1089,7 +1144,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                   width: 5,
                   height: 5,
                   decoration: const BoxDecoration(
-                    color: MirelloColors.primaryInk,
+                    color: NostraColors.primaryInk,
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -1121,7 +1176,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 14.5,
                       fontWeight: FontWeight.w700,
-                      color: MirelloColors.primaryInk,
+                      color: NostraColors.primaryInk,
                     ),
                   ),
                 ),
@@ -1149,7 +1204,7 @@ class MirelloEditorialPageView extends StatelessWidget {
         ),
         border: const Border(
           left: BorderSide(
-            color: MirelloColors.primaryInk,
+            color: NostraColors.primaryInk,
             width: 3.5,
           ),
         ),
@@ -1158,7 +1213,7 @@ class MirelloEditorialPageView extends StatelessWidget {
       child: _buildRichText(
         text,
         fontSize: 14.5,
-        baseColor: MirelloColors.primaryInk,
+        baseColor: NostraColors.primaryInk,
       ),
     );
   }
@@ -1170,7 +1225,7 @@ class MirelloEditorialPageView extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.8),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: MirelloColors.borderCard, width: 1.0),
+        border: Border.all(color: NostraColors.borderCard, width: 1.0),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1179,10 +1234,10 @@ class MirelloEditorialPageView extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                color: MirelloColors.primaryInk.withValues(alpha: 0.05),
+                color: NostraColors.primaryInk.withValues(alpha: 0.05),
                 borderRadius: const BorderRadius.vertical(top: Radius.circular(11)),
                 border: const Border(
-                  bottom: BorderSide(color: MirelloColors.borderCard, width: 0.8),
+                  bottom: BorderSide(color: NostraColors.borderCard, width: 0.8),
                 ),
               ),
               child: Text(
@@ -1190,7 +1245,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                 style: GoogleFonts.jetBrainsMono(
                   fontSize: 10,
                   fontWeight: FontWeight.w700,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                   letterSpacing: 0.6,
                 ),
               ),
@@ -1204,7 +1259,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                 style: GoogleFonts.jetBrainsMono(
                   fontSize: 12.5,
                   fontWeight: FontWeight.w500,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                   height: 1.5,
                 ),
               ),
@@ -1222,7 +1277,7 @@ class MirelloEditorialPageView extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.75),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: MirelloColors.borderCard, width: 1.0),
+        border: Border.all(color: NostraColors.borderCard, width: 1.0),
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
@@ -1232,11 +1287,11 @@ class MirelloEditorialPageView extends StatelessWidget {
             defaultColumnWidth: const IntrinsicColumnWidth(),
             border: TableBorder(
               horizontalInside: BorderSide(
-                color: MirelloColors.borderCard.withValues(alpha: 0.7),
+                color: NostraColors.borderCard.withValues(alpha: 0.7),
                 width: 0.8,
               ),
               verticalInside: BorderSide(
-                color: MirelloColors.borderCard.withValues(alpha: 0.7),
+                color: NostraColors.borderCard.withValues(alpha: 0.7),
                 width: 0.8,
               ),
             ),
@@ -1244,7 +1299,7 @@ class MirelloEditorialPageView extends StatelessWidget {
               if (headers.isNotEmpty)
                 TableRow(
                   decoration: BoxDecoration(
-                    color: MirelloColors.primaryInk.withValues(alpha: 0.06),
+                    color: NostraColors.primaryInk.withValues(alpha: 0.06),
                   ),
                   children: headers
                       .map((h) => Padding(
@@ -1257,7 +1312,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                               style: GoogleFonts.plusJakartaSans(
                                 fontSize: 12.5,
                                 fontWeight: FontWeight.w700,
-                                color: MirelloColors.primaryInk,
+                                color: NostraColors.primaryInk,
                               ),
                             ),
                           ))
@@ -1295,7 +1350,7 @@ class MirelloEditorialPageView extends StatelessWidget {
         color: Colors.white.withValues(alpha: 0.65),
         borderRadius: BorderRadius.circular(14),
         border: Border.all(
-          color: MirelloColors.borderCard,
+          color: NostraColors.borderCard,
           width: 1.0,
         ),
       ),
@@ -1307,7 +1362,7 @@ class MirelloEditorialPageView extends StatelessWidget {
               const Icon(
                 LucideIcons.code2,
                 size: 14,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
               const SizedBox(width: 6),
               Expanded(
@@ -1317,7 +1372,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                     fontSize: 10.5,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 0.5,
-                    color: MirelloColors.primaryInk,
+                    color: NostraColors.primaryInk,
                   ),
                 ),
               ),
@@ -1346,7 +1401,7 @@ class MirelloEditorialPageView extends StatelessWidget {
         color: Colors.white.withValues(alpha: 0.65),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: MirelloColors.borderCard,
+          color: NostraColors.borderCard,
           width: 1.0,
         ),
       ),
@@ -1361,7 +1416,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 11,
                   fontWeight: FontWeight.w700,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                   letterSpacing: 0.4,
                 ),
               ),
@@ -1371,7 +1426,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(4),
                   border: Border.all(
-                    color: MirelloColors.borderCard,
+                    color: NostraColors.borderCard,
                     width: 0.6,
                   ),
                 ),
@@ -1380,7 +1435,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                   style: GoogleFonts.jetBrainsMono(
                     fontSize: 9.5,
                     fontWeight: FontWeight.w700,
-                    color: MirelloColors.primaryInk,
+                    color: NostraColors.primaryInk,
                   ),
                 ),
               ),
@@ -1399,7 +1454,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                 color: Colors.white.withValues(alpha: 0.85),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color: MirelloColors.borderCard,
+                  color: NostraColors.borderCard,
                   width: 0.8,
                 ),
               ),
@@ -1411,7 +1466,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                       const Icon(
                         LucideIcons.checkCircle2,
                         size: 16,
-                        color: MirelloColors.primaryInk,
+                        color: NostraColors.primaryInk,
                       ),
                       const SizedBox(width: 8),
                       Text(
@@ -1420,7 +1475,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
                           letterSpacing: 0.5,
-                          color: MirelloColors.primaryInk,
+                          color: NostraColors.primaryInk,
                         ),
                       ),
                     ],
@@ -1487,7 +1542,7 @@ class MirelloEditorialPageView extends StatelessWidget {
               Icon(
                 icon,
                 size: 15,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
               const SizedBox(width: 7),
               Expanded(
@@ -1497,7 +1552,7 @@ class MirelloEditorialPageView extends StatelessWidget {
                     fontSize: 10.5,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 0.5,
-                    color: MirelloColors.primaryInk,
+                    color: NostraColors.primaryInk,
                   ),
                 ),
               ),
@@ -1513,3 +1568,4 @@ class MirelloEditorialPageView extends StatelessWidget {
     );
   }
 }
+

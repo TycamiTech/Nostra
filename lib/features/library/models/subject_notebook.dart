@@ -138,7 +138,7 @@ class SubjectNotebook {
     );
   }
 
-  /// The 4 default UTBK subjects styled in Mirello Soft Warm pastels
+  /// The 4 default UTBK subjects styled in Nostra Soft Warm pastels
   static List<SubjectNotebook> get defaultSubjects =>
       DefaultSubjectsSeed.defaultSubjects;
 }

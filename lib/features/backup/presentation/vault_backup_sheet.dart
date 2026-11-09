@@ -5,7 +5,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../core/localization/app_strings.dart';
 import '../../../core/services/app_settings_service.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 import '../../library/data/notebook_repository.dart';
 import '../../notes/data/free_notes_repository.dart';
 import '../services/local_vault_service.dart';
@@ -65,7 +65,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
       if (mounted) {
         messenger.showSnackBar(
           SnackBar(
-            backgroundColor: MirelloColors.primaryInk,
+            backgroundColor: NostraColors.primaryInk,
             behavior: SnackBarBehavior.floating,
             content: Row(
               children: [
@@ -79,7 +79,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                   child: Text(
                     AppStrings.backupSuccess(count),
                     style: GoogleFonts.plusJakartaSans(
-                      color: MirelloColors.paperSurface,
+                      color: NostraColors.paperSurface,
                       fontSize: 13,
                       fontWeight: FontWeight.w500,
                     ),
@@ -158,7 +158,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
         if (mounted) {
           messenger.showSnackBar(
             SnackBar(
-              backgroundColor: MirelloColors.primaryInk,
+              backgroundColor: NostraColors.primaryInk,
               behavior: SnackBarBehavior.floating,
               content: Row(
                 children: [
@@ -172,7 +172,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                     child: Text(
                       AppStrings.restoreSuccess(count),
                       style: GoogleFonts.plusJakartaSans(
-                        color: MirelloColors.paperSurface,
+                        color: NostraColors.paperSurface,
                         fontSize: 13,
                         fontWeight: FontWeight.w500,
                       ),
@@ -214,7 +214,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
       ),
       padding: const EdgeInsets.fromLTRB(24, 18, 24, 28),
       decoration: const BoxDecoration(
-        color: MirelloColors.paperSurface,
+        color: NostraColors.paperSurface,
         borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
       child: Column(
@@ -226,7 +226,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
               width: 38,
               height: 4,
               decoration: BoxDecoration(
-                color: MirelloColors.borderSubtle,
+                color: NostraColors.borderSubtle,
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
@@ -242,14 +242,14 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    color: MirelloColors.borderCard,
+                    color: NostraColors.borderCard,
                     width: 0.8,
                   ),
                 ),
                 child: const Icon(
                   LucideIcons.hardDrive,
                   size: 20,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(width: 12),
@@ -262,7 +262,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 16.5,
                         fontWeight: FontWeight.w700,
-                        color: MirelloColors.primaryInk,
+                        color: NostraColors.primaryInk,
                       ),
                     ),
                     const SizedBox(height: 2),
@@ -270,7 +270,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                       AppStrings.vaultSubtitleShort,
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 11.5,
-                        color: MirelloColors.secondaryMuted,
+                        color: NostraColors.secondaryMuted,
                       ),
                     ),
                   ],
@@ -280,14 +280,14 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                 icon: const Icon(
                   LucideIcons.x,
                   size: 20,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                 ),
                 onPressed: () => Navigator.pop(context),
               ),
             ],
           ),
           const SizedBox(height: 14),
-          const Divider(color: MirelloColors.borderSubtle, thickness: 1),
+          const Divider(color: NostraColors.borderSubtle, thickness: 1),
           const SizedBox(height: 14),
 
           // Scrollable Content
@@ -317,7 +317,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                             const Icon(
                               LucideIcons.folderCheck,
                               size: 16,
-                              color: MirelloColors.primaryInk,
+                              color: NostraColors.primaryInk,
                             ),
                             const SizedBox(width: 8),
                             Text(
@@ -326,7 +326,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                                 fontSize: 11,
                                 fontWeight: FontWeight.w700,
                                 letterSpacing: 0.5,
-                                color: MirelloColors.primaryInk,
+                                color: NostraColors.primaryInk,
                               ),
                             ),
                           ],
@@ -336,7 +336,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                           AppStrings.autoMirroringDesc,
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 12,
-                            color: MirelloColors.primaryInk,
+                            color: NostraColors.primaryInk,
                             height: 1.4,
                           ),
                         ),
@@ -347,7 +347,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                             color: Colors.white.withValues(alpha: 0.8),
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(
-                              color: MirelloColors.borderCard,
+                              color: NostraColors.borderCard,
                               width: 0.8,
                             ),
                           ),
@@ -356,7 +356,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                             style: GoogleFonts.jetBrainsMono(
                               fontSize: 11,
                               fontWeight: FontWeight.w600,
-                              color: MirelloColors.primaryInk,
+                              color: NostraColors.primaryInk,
                             ),
                           ),
                         ),
@@ -366,7 +366,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 11,
                             fontWeight: FontWeight.w600,
-                            color: MirelloColors.primaryInk.withValues(alpha: 0.8),
+                            color: NostraColors.primaryInk.withValues(alpha: 0.8),
                           ),
                         ),
                       ],
@@ -380,7 +380,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 13,
                       fontWeight: FontWeight.w700,
-                      color: MirelloColors.primaryInk,
+                      color: NostraColors.primaryInk,
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -424,7 +424,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                       color: const Color(0xFFEFE5CD).withValues(alpha: 0.6),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                        color: MirelloColors.borderCard,
+                        color: NostraColors.borderCard,
                         width: 0.8,
                       ),
                     ),
@@ -434,7 +434,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                         const Icon(
                           LucideIcons.info,
                           size: 15,
-                          color: MirelloColors.primaryInk,
+                          color: NostraColors.primaryInk,
                         ),
                         const SizedBox(width: 8),
                         Expanded(
@@ -442,7 +442,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                             AppStrings.vaultCompatibilityFooter,
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 11.5,
-                              color: MirelloColors.primaryInk,
+                              color: NostraColors.primaryInk,
                               height: 1.4,
                             ),
                           ),
@@ -480,7 +480,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
             color: Colors.white,
             borderRadius: BorderRadius.circular(14),
             border: Border.all(
-              color: MirelloColors.borderCard,
+              color: NostraColors.borderCard,
               width: 0.9,
             ),
           ),
@@ -489,14 +489,14 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
               Container(
                 padding: const EdgeInsets.all(9),
                 decoration: BoxDecoration(
-                  color: MirelloColors.scaffoldBackground,
+                  color: NostraColors.scaffoldBackground,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    color: MirelloColors.borderCard,
+                    color: NostraColors.borderCard,
                     width: 0.8,
                   ),
                 ),
-                child: Icon(icon, size: 18, color: MirelloColors.primaryInk),
+                child: Icon(icon, size: 18, color: NostraColors.primaryInk),
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -508,7 +508,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 13,
                         fontWeight: FontWeight.w700,
-                        color: MirelloColors.primaryInk,
+                        color: NostraColors.primaryInk,
                       ),
                     ),
                     const SizedBox(height: 2),
@@ -516,7 +516,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
                       subtitle,
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 11.5,
-                        color: MirelloColors.secondaryMuted,
+                        color: NostraColors.secondaryMuted,
                         height: 1.35,
                       ),
                     ),
@@ -526,7 +526,7 @@ class _VaultBackupSheetState extends State<VaultBackupSheet> {
               const Icon(
                 LucideIcons.chevronRight,
                 size: 16,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
               ),
             ],
           ),

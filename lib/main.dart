@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'core/services/app_settings_service.dart';
-import 'core/theme/mirello_theme.dart';
+import 'core/theme/nostra_theme.dart';
 import 'features/library/data/notebook_repository.dart';
 import 'features/library/presentation/home_screen.dart';
 import 'features/notes/data/free_notes_repository.dart';
@@ -27,13 +27,13 @@ void main() async {
   await ReaderRepository.instance.init();
   await FreeNotesRepository.instance.init();
 
-  runApp(MirelloApp(hasSeenOnboarding: hasSeenOnboarding));
+  runApp(NostraApp(hasSeenOnboarding: hasSeenOnboarding));
 }
 
-class MirelloApp extends StatelessWidget {
+class NostraApp extends StatelessWidget {
   final bool hasSeenOnboarding;
 
-  const MirelloApp({super.key, this.hasSeenOnboarding = false});
+  const NostraApp({super.key, this.hasSeenOnboarding = false});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class MirelloApp extends StatelessWidget {
         return MaterialApp(
           title: 'Nostra',
           debugShowCheckedModeBanner: false,
-          theme: MirelloTheme.lightTheme,
+          theme: NostraTheme.lightTheme,
           home: hasSeenOnboarding
               ? const HomeScreen()
               : const OnboardingScreen(),

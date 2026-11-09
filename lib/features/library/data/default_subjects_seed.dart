@@ -382,7 +382,7 @@ M₂ = 10.000.000 × (1 + 0.1)² = 10.000.000 × 1.21 = Rp12.100.000.
 :::
 ''';
 
-  /// The 4 default UTBK subjects styled in Mirello Soft Warm pastels
+  /// The 4 default UTBK subjects styled in Nostra Soft Warm pastels
   static List<SubjectNotebook> get defaultSubjects => [
         const SubjectNotebook(
           id: 'utbk_tps',

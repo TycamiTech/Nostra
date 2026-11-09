@@ -8,7 +8,7 @@ import 'package:path_provider/path_provider.dart';
 
 import '../../../core/localization/app_strings.dart';
 import '../../../core/services/app_settings_service.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 import '../../../core/utils/date_formatter.dart';
 import '../../backup/services/local_vault_service.dart';
 import '../data/free_notes_repository.dart';
@@ -476,13 +476,13 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
     showDialog(
       context: context,
       builder: (dialogCtx) => AlertDialog(
-        backgroundColor: MirelloColors.paperSurface,
+        backgroundColor: NostraColors.paperSurface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Text(
           AppStrings.isIndonesian ? 'Pindahkan ke Sampah?' : 'Move to Trash?',
           style: GoogleFonts.plusJakartaSans(
             fontWeight: FontWeight.w700,
-            color: MirelloColors.primaryInk,
+            color: NostraColors.primaryInk,
           ),
         ),
         content: Text(
@@ -491,7 +491,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
               : 'This note will be kept in Trash for 7 days before being permanently deleted.',
           style: GoogleFonts.plusJakartaSans(
             fontSize: 13.5,
-            color: MirelloColors.secondaryMuted,
+            color: NostraColors.secondaryMuted,
             height: 1.4,
           ),
         ),
@@ -501,7 +501,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
             child: Text(
               AppStrings.cancel,
               style: GoogleFonts.plusJakartaSans(
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -591,7 +591,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
           leading: IconButton(
             icon: const Icon(
               LucideIcons.chevronLeft,
-              color: MirelloColors.primaryInk,
+              color: NostraColors.primaryInk,
               size: 22,
             ),
             tooltip: AppStrings.isIndonesian ? 'Kembali & Simpan' : 'Back & Save',
@@ -606,7 +606,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
               IconButton(
                 icon: const Icon(
                   LucideIcons.imagePlus,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                   size: 20,
                 ),
                 tooltip: AppStrings.isIndonesian ? 'Sisipkan Gambar' : 'Insert Image',
@@ -618,7 +618,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
               IconButton(
                 icon: Icon(
                   _isPreviewMode ? LucideIcons.edit3 : LucideIcons.eye,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                   size: 20,
                 ),
                 tooltip: _isPreviewMode
@@ -634,7 +634,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
             IconButton(
               icon: const Icon(
                 LucideIcons.palette,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
                 size: 20,
               ),
               tooltip: AppStrings.isIndonesian ? 'Ubah Warna Catatan' : 'Change Note Color',
@@ -646,7 +646,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                 _isPinned ? LucideIcons.pinOff : LucideIcons.pin,
                 color: _isPinned
                     ? const Color(0xFFBA1A1A)
-                    : MirelloColors.primaryInk,
+                    : NostraColors.primaryInk,
                 size: 20,
               ),
               tooltip: _isPinned ? AppStrings.unpin : AppStrings.pinToTop,
@@ -663,7 +663,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                 _isFavorite ? LucideIcons.heartHandshake : LucideIcons.heart,
                 color: _isFavorite
                     ? const Color(0xFFBA1A1A)
-                    : MirelloColors.primaryInk,
+                    : NostraColors.primaryInk,
                 size: 20,
               ),
               tooltip: _isFavorite
@@ -680,10 +680,10 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
             PopupMenuButton<String>(
               icon: const Icon(
                 LucideIcons.moreVertical,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
                 size: 20,
               ),
-              color: MirelloColors.paperSurface,
+              color: NostraColors.paperSurface,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14),
               ),
@@ -723,7 +723,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                             ? LucideIcons.archiveRestore
                             : LucideIcons.archive,
                         size: 16,
-                        color: MirelloColors.primaryInk,
+                        color: NostraColors.primaryInk,
                       ),
                       const SizedBox(width: 10),
                       Text(
@@ -733,7 +733,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
-                          color: MirelloColors.primaryInk,
+                          color: NostraColors.primaryInk,
                         ),
                       ),
                     ],
@@ -747,7 +747,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                         const Icon(
                           LucideIcons.fileCode,
                           size: 16,
-                          color: MirelloColors.primaryInk,
+                          color: NostraColors.primaryInk,
                         ),
                         const SizedBox(width: 10),
                         Text(
@@ -757,7 +757,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
-                            color: MirelloColors.primaryInk,
+                            color: NostraColors.primaryInk,
                           ),
                         ),
                       ],
@@ -770,7 +770,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                       const Icon(
                         LucideIcons.fileText,
                         size: 16,
-                        color: MirelloColors.primaryInk,
+                        color: NostraColors.primaryInk,
                       ),
                       const SizedBox(width: 10),
                       Text(
@@ -784,7 +784,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
-                          color: MirelloColors.primaryInk,
+                          color: NostraColors.primaryInk,
                         ),
                       ),
                     ],
@@ -797,7 +797,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                       const Icon(
                         LucideIcons.copy,
                         size: 16,
-                        color: MirelloColors.primaryInk,
+                        color: NostraColors.primaryInk,
                       ),
                       const SizedBox(width: 10),
                       Text(
@@ -807,7 +807,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
-                          color: MirelloColors.primaryInk,
+                          color: NostraColors.primaryInk,
                         ),
                       ),
                     ],
@@ -871,14 +871,14 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
           style: GoogleFonts.plusJakartaSans(
             fontSize: 22,
             fontWeight: FontWeight.w700,
-            color: MirelloColors.primaryInk,
+            color: NostraColors.primaryInk,
           ),
           decoration: InputDecoration(
             hintText: AppStrings.isIndonesian ? 'Judul Catatan' : 'Note Title',
             hintStyle: GoogleFonts.plusJakartaSans(
               fontSize: 22,
               fontWeight: FontWeight.w700,
-              color: MirelloColors.secondaryMuted.withValues(alpha: 0.6),
+              color: NostraColors.secondaryMuted.withValues(alpha: 0.6),
             ),
             border: InputBorder.none,
             isDense: true,
@@ -901,14 +901,14 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                   Icon(
                     LucideIcons.clock,
                     size: 12,
-                    color: MirelloColors.secondaryMuted.withValues(alpha: 0.7),
+                    color: NostraColors.secondaryMuted.withValues(alpha: 0.7),
                   ),
                   const SizedBox(width: 5),
                   Text(
                     _formatDate(_updatedAt),
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 11.5,
-                      color: MirelloColors.secondaryMuted,
+                      color: NostraColors.secondaryMuted,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -917,7 +917,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                     '•',
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 11,
-                      color: MirelloColors.secondaryMuted,
+                      color: NostraColors.secondaryMuted,
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -925,7 +925,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                     AppStrings.wordsCount(_wordCount),
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 11.5,
-                      color: MirelloColors.secondaryMuted,
+                      color: NostraColors.secondaryMuted,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -935,7 +935,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                       '•',
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 11,
-                        color: MirelloColors.secondaryMuted,
+                        color: NostraColors.secondaryMuted,
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -943,7 +943,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                       '${_imagePaths.length} ${AppStrings.isIndonesian ? "gambar" : "images"}',
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 11.5,
-                        color: MirelloColors.secondaryMuted,
+                        color: NostraColors.secondaryMuted,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -1014,7 +1014,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
 
         const SizedBox(height: 10),
         const Divider(
-          color: MirelloColors.borderSubtle,
+          color: NostraColors.borderSubtle,
           thickness: 0.8,
           height: 1,
         ),
@@ -1033,7 +1033,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 16,
                 height: 1.6,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
                 fontWeight: FontWeight.w400,
               ),
               decoration: InputDecoration(
@@ -1047,7 +1047,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                 hintStyle: GoogleFonts.plusJakartaSans(
                   fontSize: 15,
                   height: 1.6,
-                  color: MirelloColors.secondaryMuted.withValues(alpha: 0.5),
+                  color: NostraColors.secondaryMuted.withValues(alpha: 0.5),
                 ),
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.zero,
@@ -1163,7 +1163,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
             style: GoogleFonts.plusJakartaSans(
               fontSize: 24,
               fontWeight: FontWeight.w800,
-              color: MirelloColors.primaryInk,
+              color: NostraColors.primaryInk,
               height: 1.3,
             ),
           ),
@@ -1172,11 +1172,11 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
             _formatDate(_updatedAt),
             style: GoogleFonts.plusJakartaSans(
               fontSize: 12,
-              color: MirelloColors.secondaryMuted,
+              color: NostraColors.secondaryMuted,
             ),
           ),
           const SizedBox(height: 12),
-          const Divider(color: MirelloColors.borderSubtle, thickness: 1),
+          const Divider(color: NostraColors.borderSubtle, thickness: 1),
           const SizedBox(height: 12),
 
           // Attached Images Gallery (Full Width in Preview)
@@ -1188,7 +1188,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                   margin: const EdgeInsets.only(bottom: 14),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: MirelloColors.borderCard, width: 0.8),
+                    border: Border.all(color: NostraColors.borderCard, width: 0.8),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withValues(alpha: 0.05),
@@ -1228,7 +1228,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
         style: GoogleFonts.plusJakartaSans(
           fontSize: 14,
           fontStyle: FontStyle.italic,
-          color: MirelloColors.secondaryMuted,
+          color: NostraColors.secondaryMuted,
         ),
       );
     }
@@ -1257,7 +1257,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
           style: GoogleFonts.plusJakartaSans(
             fontSize: 21,
             fontWeight: FontWeight.w700,
-            color: MirelloColors.primaryInk,
+            color: NostraColors.primaryInk,
           ),
         ),
       );
@@ -1272,7 +1272,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
           style: GoogleFonts.plusJakartaSans(
             fontSize: 18,
             fontWeight: FontWeight.w700,
-            color: MirelloColors.primaryInk,
+            color: NostraColors.primaryInk,
           ),
         ),
       );
@@ -1287,7 +1287,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
           style: GoogleFonts.plusJakartaSans(
             fontSize: 15.5,
             fontWeight: FontWeight.w700,
-            color: MirelloColors.primaryInk,
+            color: NostraColors.primaryInk,
           ),
         ),
       );
@@ -1345,7 +1345,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                 child: Icon(
                   isChecked ? LucideIcons.checkSquare2 : LucideIcons.square,
                   size: 16.5,
-                  color: isChecked ? MirelloColors.secondaryMuted : MirelloColors.primaryInk,
+                  color: isChecked ? NostraColors.secondaryMuted : NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(width: 8),
@@ -1356,8 +1356,8 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
                     fontSize: 15,
                     height: 1.45,
                     color: isChecked
-                        ? MirelloColors.secondaryMuted
-                        : MirelloColors.primaryInk,
+                        ? NostraColors.secondaryMuted
+                        : NostraColors.primaryInk,
                     decoration: isChecked ? TextDecoration.lineThrough : null,
                   ),
                 ),
@@ -1380,7 +1380,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
               width: 5,
               height: 5,
               decoration: const BoxDecoration(
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
                 shape: BoxShape.circle,
               ),
             ),
@@ -1400,7 +1400,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
         decoration: BoxDecoration(
           color: Colors.white.withValues(alpha: 0.5),
           border: const Border(
-            left: BorderSide(color: MirelloColors.primaryInk, width: 3),
+            left: BorderSide(color: NostraColors.primaryInk, width: 3),
           ),
         ),
         child: _buildInlineRichText(trimmed.substring(2)),
@@ -1430,7 +1430,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
     final defaultStyle = GoogleFonts.plusJakartaSans(
       fontSize: 15.5,
       height: 1.55,
-      color: MirelloColors.primaryInk,
+      color: NostraColors.primaryInk,
     );
 
     for (final match in regex.allMatches(text)) {
@@ -1521,7 +1521,7 @@ class _FreeNoteEditorScreenState extends State<FreeNoteEditorScreen> {
         color: pageBgColor,
         border: const Border(
           top: BorderSide(
-            color: MirelloColors.borderSubtle,
+            color: NostraColors.borderSubtle,
             width: 0.8,
           ),
         ),

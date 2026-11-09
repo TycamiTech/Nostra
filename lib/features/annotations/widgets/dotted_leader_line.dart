@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 
 /// Renders an editorial Table of Contents row with a dynamic dotted leader line.
 /// Format: "BAB 01: Persamaan Linear .......... Hlm. 12"
@@ -43,7 +43,7 @@ class DottedLeaderLineRow extends StatelessWidget {
                   style: GoogleFonts.plusJakartaSans(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
-                    color: MirelloColors.primaryInk,
+                    color: NostraColors.primaryInk,
                     letterSpacing: -0.2,
                   ),
                 ),
@@ -86,7 +86,7 @@ class DottedLeaderLineRow extends StatelessWidget {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 13.5,
                 fontWeight: FontWeight.w700,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
             ),
           ],

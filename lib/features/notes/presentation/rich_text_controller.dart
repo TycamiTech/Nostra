@@ -2,7 +2,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 
 /// Formatting attributes applied per-character in [GoogleKeepRichTextController].
 class CharFormat {
@@ -627,7 +627,7 @@ class GoogleKeepRichTextController extends TextEditingController {
         const TextStyle(
           fontSize: 16,
           height: 1.6,
-          color: MirelloColors.primaryInk,
+          color: NostraColors.primaryInk,
           fontWeight: FontWeight.w400,
         );
 
@@ -741,13 +741,13 @@ class GoogleKeepRichTextController extends TextEditingController {
     if (decorations.isNotEmpty) {
       effectiveStyle = effectiveStyle.copyWith(
         decoration: TextDecoration.combine(decorations),
-        decorationColor: isCheckedLine ? MirelloColors.secondaryMuted : null,
+        decorationColor: isCheckedLine ? NostraColors.secondaryMuted : null,
       );
     }
 
     if (isCheckedLine) {
       effectiveStyle = effectiveStyle.copyWith(
-        color: MirelloColors.secondaryMuted,
+        color: NostraColors.secondaryMuted,
       );
     }
 
@@ -1095,7 +1095,7 @@ class GoogleKeepRichTextController extends TextEditingController {
         const TextStyle(
           fontSize: 12,
           height: 1.45,
-          color: MirelloColors.primaryInk,
+          color: NostraColors.primaryInk,
           fontWeight: FontWeight.w400,
         );
 
@@ -1135,8 +1135,8 @@ class GoogleKeepRichTextController extends TextEditingController {
                 isCheckedLine ? LucideIcons.checkSquare2 : LucideIcons.square,
                 size: 13,
                 color: isCheckedLine
-                    ? MirelloColors.secondaryMuted
-                    : MirelloColors.primaryInk.withValues(alpha: 0.75),
+                    ? NostraColors.secondaryMuted
+                    : NostraColors.primaryInk.withValues(alpha: 0.75),
               ),
             ),
           ),
@@ -1151,7 +1151,7 @@ class GoogleKeepRichTextController extends TextEditingController {
                 width: 4,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: MirelloColors.primaryInk.withValues(alpha: 0.75),
+                  color: NostraColors.primaryInk.withValues(alpha: 0.75),
                   shape: BoxShape.circle,
                 ),
               ),
@@ -1195,7 +1195,7 @@ class GoogleKeepRichTextController extends TextEditingController {
                   backgroundColor:
                       currentRunFormat.highlight ? const Color(0xFFF6E08E) : null,
                   color: isCheckedLine
-                      ? MirelloColors.secondaryMuted
+                      ? NostraColors.secondaryMuted
                       : (currentRunFormat.highlight ? Colors.black : lineStyle.color),
                 ),
               ),
@@ -1225,7 +1225,7 @@ class GoogleKeepRichTextController extends TextEditingController {
                 backgroundColor:
                     currentRunFormat.highlight ? const Color(0xFFF6E08E) : null,
                 color: isCheckedLine
-                    ? MirelloColors.secondaryMuted
+                    ? NostraColors.secondaryMuted
                     : (currentRunFormat.highlight ? Colors.black : lineStyle.color),
               ),
             ),

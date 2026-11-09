@@ -2,8 +2,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import '../models/sticky_note.dart';
 
 class ReaderRepository {
-  static const String bookmarksBoxName = 'mirello_bookmarks';
-  static const String notesBoxName = 'mirello_stickynotes';
+  static const String bookmarksBoxName = 'Nostra_bookmarks';
+  static const String notesBoxName = 'Nostra_stickynotes';
   static ReaderRepository? _instance;
 
   late Box _bookmarksBox;

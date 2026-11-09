@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../core/localization/app_strings.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 import '../../reader/data/reader_repository.dart';
 import '../models/toc_item.dart';
 import '../widgets/corner_doodles.dart';
@@ -95,7 +95,7 @@ class _SearchAndTocSheetState extends State<SearchAndTocSheet> {
     return Container(
       height: MediaQuery.of(context).size.height * 0.78,
       decoration: const BoxDecoration(
-        color: MirelloColors.scaffoldBackground,
+        color: NostraColors.scaffoldBackground,
         borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
       child: ClipRRect(
@@ -125,7 +125,7 @@ class _SearchAndTocSheetState extends State<SearchAndTocSheet> {
                       width: 36,
                       height: 4,
                       decoration: BoxDecoration(
-                        color: MirelloColors.borderSubtle,
+                        color: NostraColors.borderSubtle,
                         borderRadius: BorderRadius.circular(2),
                       ),
                     ),
@@ -187,7 +187,7 @@ class _SearchAndTocSheetState extends State<SearchAndTocSheet> {
               color: const Color(0xFFEAE8E1),
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
-                color: MirelloColors.borderSubtle,
+                color: NostraColors.borderSubtle,
                 width: 0.8,
               ),
             ),
@@ -198,7 +198,7 @@ class _SearchAndTocSheetState extends State<SearchAndTocSheet> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
               decoration: InputDecoration(
                 hintText: AppStrings.isIndonesian
@@ -206,7 +206,7 @@ class _SearchAndTocSheetState extends State<SearchAndTocSheet> {
                     : 'Search document...',
                 hintStyle: GoogleFonts.plusJakartaSans(
                   fontSize: 13.5,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                 ),
                 border: InputBorder.none,
                 isDense: true,
@@ -216,7 +216,7 @@ class _SearchAndTocSheetState extends State<SearchAndTocSheet> {
                         icon: const Icon(
                           LucideIcons.x,
                           size: 16,
-                          color: MirelloColors.secondaryMuted,
+                          color: NostraColors.secondaryMuted,
                         ),
                         onPressed: () => _searchController.clear(),
                       )
@@ -236,7 +236,7 @@ class _SearchAndTocSheetState extends State<SearchAndTocSheet> {
             color: const Color(0xFFD8CEE6), // Soft lavender
             borderRadius: BorderRadius.circular(14),
             border: Border.all(
-              color: MirelloColors.borderCard,
+              color: NostraColors.borderCard,
               width: 0.8,
             ),
           ),
@@ -244,7 +244,7 @@ class _SearchAndTocSheetState extends State<SearchAndTocSheet> {
             icon: const Icon(
               LucideIcons.search,
               size: 20,
-              color: MirelloColors.primaryInk,
+              color: NostraColors.primaryInk,
             ),
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
@@ -301,7 +301,7 @@ class _SearchAndTocSheetState extends State<SearchAndTocSheet> {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
-          color: isSelected ? MirelloColors.paperSurface : Colors.transparent,
+          color: isSelected ? NostraColors.paperSurface : Colors.transparent,
           borderRadius: BorderRadius.circular(10),
           boxShadow: isSelected
               ? const [
@@ -320,8 +320,8 @@ class _SearchAndTocSheetState extends State<SearchAndTocSheet> {
               icon,
               size: 15,
               color: isSelected
-                  ? MirelloColors.primaryInk
-                  : MirelloColors.secondaryMuted,
+                  ? NostraColors.primaryInk
+                  : NostraColors.secondaryMuted,
             ),
             const SizedBox(width: 6),
             Text(
@@ -330,8 +330,8 @@ class _SearchAndTocSheetState extends State<SearchAndTocSheet> {
                 fontSize: 12.5,
                 fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
                 color: isSelected
-                    ? MirelloColors.primaryInk
-                    : MirelloColors.secondaryMuted,
+                    ? NostraColors.primaryInk
+                    : NostraColors.secondaryMuted,
               ),
             ),
           ],
@@ -352,7 +352,7 @@ class _SearchAndTocSheetState extends State<SearchAndTocSheet> {
             Icon(
               isBookmarkTab ? LucideIcons.bookmark : LucideIcons.searchX,
               size: 28,
-              color: MirelloColors.secondaryMuted,
+              color: NostraColors.secondaryMuted,
             ),
             const SizedBox(height: 12),
             Text(
@@ -366,7 +366,7 @@ class _SearchAndTocSheetState extends State<SearchAndTocSheet> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
             ),
             const SizedBox(height: 4),
@@ -381,7 +381,7 @@ class _SearchAndTocSheetState extends State<SearchAndTocSheet> {
               textAlign: TextAlign.center,
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 12,
-                color: MirelloColors.secondaryMuted,
+                color: NostraColors.secondaryMuted,
               ),
             ),
           ],

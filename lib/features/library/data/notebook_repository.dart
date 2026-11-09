@@ -5,7 +5,7 @@ import '../../backup/services/local_vault_service.dart';
 import '../models/subject_notebook.dart';
 
 class NotebookRepository {
-  static const String boxName = 'mirello_notebooks';
+  static const String boxName = 'Nostra_notebooks';
   static NotebookRepository? _instance;
   late Box _box;
 

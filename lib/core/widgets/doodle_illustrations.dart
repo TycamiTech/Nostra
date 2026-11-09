@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme/mirello_theme.dart';
+import '../theme/nostra_theme.dart';
 
 /// Subject doodle identifier enum
 enum SubjectDoodleType {
@@ -36,7 +36,7 @@ class LogicDoodlePainter extends CustomPainter {
   final double strokeWidth;
 
   const LogicDoodlePainter({
-    this.color = MirelloColors.primaryInk,
+    this.color = NostraColors.primaryInk,
     this.fillColor = const Color(0xE6FFFFFF),
     this.strokeWidth = 1.5,
   });
@@ -159,7 +159,7 @@ class MathDoodlePainter extends CustomPainter {
   final double strokeWidth;
 
   const MathDoodlePainter({
-    this.color = MirelloColors.primaryInk,
+    this.color = NostraColors.primaryInk,
     this.fillColor = const Color(0xE6FFFFFF),
     this.strokeWidth = 1.5,
   });
@@ -292,7 +292,7 @@ class ReadingDoodlePainter extends CustomPainter {
   final double strokeWidth;
 
   const ReadingDoodlePainter({
-    this.color = MirelloColors.primaryInk,
+    this.color = NostraColors.primaryInk,
     this.fillColor = const Color(0xE6FFFFFF),
     this.strokeWidth = 1.5,
   });
@@ -431,7 +431,7 @@ class CalculusDoodlePainter extends CustomPainter {
   final double strokeWidth;
 
   const CalculusDoodlePainter({
-    this.color = MirelloColors.primaryInk,
+    this.color = NostraColors.primaryInk,
     this.fillColor = const Color(0xE6FFFFFF),
     this.strokeWidth = 1.5,
   });
@@ -566,7 +566,7 @@ class LogicDoodle extends StatelessWidget {
       height: height,
       child: CustomPaint(
         painter: LogicDoodlePainter(
-          color: color ?? MirelloColors.primaryInk,
+          color: color ?? NostraColors.primaryInk,
           fillColor: fillColor ?? const Color(0xE6FFFFFF),
           strokeWidth: strokeWidth,
         ),
@@ -598,7 +598,7 @@ class MathDoodle extends StatelessWidget {
       height: height,
       child: CustomPaint(
         painter: MathDoodlePainter(
-          color: color ?? MirelloColors.primaryInk,
+          color: color ?? NostraColors.primaryInk,
           fillColor: fillColor ?? const Color(0xE6FFFFFF),
           strokeWidth: strokeWidth,
         ),
@@ -630,7 +630,7 @@ class ReadingDoodle extends StatelessWidget {
       height: height,
       child: CustomPaint(
         painter: ReadingDoodlePainter(
-          color: color ?? MirelloColors.primaryInk,
+          color: color ?? NostraColors.primaryInk,
           fillColor: fillColor ?? const Color(0xE6FFFFFF),
           strokeWidth: strokeWidth,
         ),
@@ -662,7 +662,7 @@ class CalculusDoodle extends StatelessWidget {
       height: height,
       child: CustomPaint(
         painter: CalculusDoodlePainter(
-          color: color ?? MirelloColors.primaryInk,
+          color: color ?? NostraColors.primaryInk,
           fillColor: fillColor ?? const Color(0xE6FFFFFF),
           strokeWidth: strokeWidth,
         ),

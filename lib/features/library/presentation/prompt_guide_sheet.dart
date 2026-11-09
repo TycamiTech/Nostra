@@ -5,7 +5,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../core/localization/app_strings.dart';
 import '../../../core/services/app_settings_service.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 
 class PromptCategory {
   final String title;
@@ -36,10 +36,12 @@ ATURAN UTAMA (WAJIB DIIKUTI):
 3. STRUKTUR FLEKSIBEL & DINAMIS: Jangan gunakan urutan komponen yang kaku/sama di setiap halaman! Susun tata letak setiap halaman secara mengalir menyesuaikan isi sub-topik menggunakan komponen yang tersedia di bawah.
 4. ATURAN RUMUS 2D (LaTeX):
    - Rumus di tengah kalimat (inline): bungkus dengan `$ ... $` (contoh: $\frac{a}{b}$, $\sqrt{x}$, $x^2$).
+   - PENTING: JANGAN pernah membungkus rumus inline di dalam tanda tebal `**...**`. Tuliskan label tebal dan rumus secara terpisah (contoh BENAR: `**Langkah 2:** Menentukan nilai $x$` | contoh SALAH: `**Langkah 2: Menentukan nilai $x$**`).
    - Rumus utama, pecahan bersusun, matriks, sistem persamaan, atau penurunan rumus: WAJIB gunakan blok `$$ ... $$` pada baris tersendiri agar dirender 2 dimensi secara proporsional:
      * Matriks: `\begin{bmatrix} a & b \\ c & d \end{bmatrix}`
      * Sistem Persamaan: `\begin{cases} ax + by = c \\ dx - ey = f \end{cases}`
      * Penurunan Aljabar Vertikal: susun langkah demi langkah menurun ke bawah dengan `\begin{aligned} ... \end{aligned}` agar alur hitungan mudah dipahami.
+   - Gunakan tanda strip (`- `) untuk daftar poin/langkah, JANGAN gunakan karakter simbol bullet `•`.
 
 KATALOG KOMPONEN VISUAL (Pilih & kombinasikan sesuai kebutuhan tiap halaman):
 - `[MODUL 01 | PK/PM]` -> Tulis di baris paling atas halaman sebagai label modul.
@@ -61,6 +63,8 @@ ATURAN UTAMA (WAJIB DIIKUTI):
 3. STRUKTUR FLEKSIBEL: Susun komponen halaman secara dinamis mengikuti jenis materi (apakah sedang membahas silogisme, tabel kebenaran, urutan posisi analitik, atau barisan angka).
 4. ATURAN SIMBOL LOGIKA & SKEMA:
    - Untuk simbol logika di tengah kalimat, gunakan `$ \sim P $`, `$ P \Rightarrow Q $`, `$ P \wedge Q $`, `$ P \vee Q $`, `$ P \equiv Q $`, `$ \forall $`, `$ \exists $`.
+   - PENTING: JANGAN membungkus simbol logika inline di dalam tanda tebal `**...**`. Tuliskan label tebal dan simbol terpisah (contoh BENAR: `**Pernyataan:** ($P \vee Q$)` | contoh SALAH: `**Pernyataan ($P \vee Q$):**`).
+   - Gunakan tanda strip (`- `) untuk daftar poin/langkah, JANGAN gunakan simbol bullet `•`.
    - Untuk skema penarikan kesimpulan (Modus Ponens, Tollens, Silogisme) atau pola barisan bilangan, susun secara vertikal menggunakan blok `$$ \begin{aligned} ... \end{aligned} $$` atau daftar terstruktur agar premis 1, premis 2, dan kesimpulan ($\therefore$) terlihat jelas tingkatannya.
    - Gunakan Tabel Markdown (`| P | Q | P ⇒ Q |`) secara aktif untuk menyajikan Tabel Kebenaran atau pemetaan syarat Penalaran Analitik.
 
@@ -84,7 +88,8 @@ ATURAN UTAMA (WAJIB DIIKUTI):
    - Pisahkan tiap sub-topik menjadi halaman tersendiri menggunakan `---` pada baris baru.
    - Jangan gunakan struktur yang kaku! Susun elemen halaman secara bebas dan bervariasi menyesuaikan materi (misal: halaman ejaan fokus menggunakan Tabel Baku vs Tidak Baku; halaman ide pokok fokus menggunakan Kutipan Paragraf `>` dan rincian poin).
 4. GAYA TIPOGRAFI ANALISIS BAHASA:
-   - Gunakan `==stabilo kuning==` untuk menyorot kalimat utama, kata hubung (konjungsi), atau inti aturan ejaan (maksimal 2-5 kata per stabilo).
+   - Gunakan `==stabilo kuning==` untuk menyorot kalimat utama, kata hubung (konjungsi), atau inti aturan ejaan (maksimal 2-5 kata per stabilo). Jangan membungkus stabilo di dalam tanda miring `*...*`.
+   - Untuk membuat baris baru di dalam sel Tabel Markdown, gunakan tag `<br>`.
    - Gunakan `~~teks dicoret~~` untuk mencontohkan kata tidak baku, kalimat tidak efektif, atau kesalahan grammar yang harus diperbaiki.
    - Gunakan inline code ` `S` `, ` `P` `, ` `O` `, ` `K` ` atau ` `V1 + ing` ` untuk menandai jabatan kalimat dan pola struktur bahasa.
 
@@ -157,7 +162,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
       ),
       padding: const EdgeInsets.fromLTRB(24, 18, 24, 24),
       decoration: const BoxDecoration(
-        color: MirelloColors.paperSurface,
+        color: NostraColors.paperSurface,
         borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
       child: Column(
@@ -169,7 +174,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
               width: 38,
               height: 4,
               decoration: BoxDecoration(
-                color: MirelloColors.borderSubtle,
+                color: NostraColors.borderSubtle,
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
@@ -185,14 +190,14 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    color: MirelloColors.borderCard,
+                    color: NostraColors.borderCard,
                     width: 0.8,
                   ),
                 ),
                 child: const Icon(
                   LucideIcons.bookOpen,
                   size: 20,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(width: 12),
@@ -205,7 +210,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 17,
                         fontWeight: FontWeight.w700,
-                        color: MirelloColors.primaryInk,
+                        color: NostraColors.primaryInk,
                       ),
                     ),
                     const SizedBox(height: 2),
@@ -213,7 +218,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                       AppStrings.promptGuideSubtitleShort,
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 12,
-                        color: MirelloColors.secondaryMuted,
+                        color: NostraColors.secondaryMuted,
                       ),
                     ),
                   ],
@@ -223,14 +228,14 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                 icon: const Icon(
                   LucideIcons.x,
                   size: 20,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                 ),
                 onPressed: () => Navigator.pop(context),
               ),
             ],
           ),
           const SizedBox(height: 16),
-          const Divider(color: MirelloColors.borderSubtle, thickness: 1),
+          const Divider(color: NostraColors.borderSubtle, thickness: 1),
           const SizedBox(height: 14),
 
           // 3-Category Selector
@@ -262,8 +267,8 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
                             color: _selectedIndex == i
-                                ? MirelloColors.primaryInk
-                                : MirelloColors.borderCard,
+                                ? NostraColors.primaryInk
+                                : NostraColors.borderCard,
                             width: 1.2,
                           ),
                         ),
@@ -274,8 +279,8 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                               _categories[i].icon,
                               size: 18,
                               color: _selectedIndex == i
-                                  ? MirelloColors.primaryInk
-                                  : MirelloColors.secondaryMuted,
+                                  ? NostraColors.primaryInk
+                                  : NostraColors.secondaryMuted,
                             ),
                             const SizedBox(height: 4),
                             FittedBox(
@@ -290,8 +295,8 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                                       ? FontWeight.w700
                                       : FontWeight.w600,
                                   color: _selectedIndex == i
-                                      ? MirelloColors.primaryInk
-                                      : MirelloColors.secondaryMuted,
+                                      ? NostraColors.primaryInk
+                                      : NostraColors.secondaryMuted,
                                   letterSpacing: -0.2,
                                 ),
                               ),
@@ -316,7 +321,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
               color: currentCategory.accentColor.withValues(alpha: 0.6),
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                color: MirelloColors.borderCard,
+                color: NostraColors.borderCard,
                 width: 0.8,
               ),
             ),
@@ -325,7 +330,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                 Icon(
                   currentCategory.icon,
                   size: 14,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
                 const SizedBox(width: 8),
                 Expanded(
@@ -334,7 +339,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 11.5,
                       fontWeight: FontWeight.w600,
-                      color: MirelloColors.primaryInk,
+                      color: NostraColors.primaryInk,
                     ),
                   ),
                 ),
@@ -356,7 +361,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 13,
                       fontWeight: FontWeight.w700,
-                      color: MirelloColors.primaryInk,
+                      color: NostraColors.primaryInk,
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -390,7 +395,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 13,
                           fontWeight: FontWeight.w700,
-                          color: MirelloColors.primaryInk,
+                          color: NostraColors.primaryInk,
                         ),
                       ),
                       Container(
@@ -402,7 +407,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                           color: currentCategory.accentColor,
                           borderRadius: BorderRadius.circular(6),
                           border: Border.all(
-                            color: MirelloColors.borderCard,
+                            color: NostraColors.borderCard,
                             width: 0.8,
                           ),
                         ),
@@ -411,7 +416,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                           style: GoogleFonts.jetBrainsMono(
                             fontSize: 10,
                             fontWeight: FontWeight.w700,
-                            color: MirelloColors.primaryInk,
+                            color: NostraColors.primaryInk,
                           ),
                         ),
                       ),
@@ -427,7 +432,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(14),
                       border: Border.all(
-                        color: MirelloColors.borderCard,
+                        color: NostraColors.borderCard,
                         width: 1.0,
                       ),
                     ),
@@ -435,7 +440,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                       currentCategory.template.trim(),
                       style: GoogleFonts.jetBrainsMono(
                         fontSize: 11.5,
-                        color: MirelloColors.primaryInk,
+                        color: NostraColors.primaryInk,
                         height: 1.5,
                       ),
                     ),
@@ -451,8 +456,8 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
             width: double.infinity,
             child: ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                backgroundColor: MirelloColors.primaryInk,
-                foregroundColor: MirelloColors.paperSurface,
+                backgroundColor: NostraColors.primaryInk,
+                foregroundColor: NostraColors.paperSurface,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14),
@@ -464,7 +469,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                 Navigator.pop(context);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    backgroundColor: MirelloColors.primaryInk,
+                    backgroundColor: NostraColors.primaryInk,
                     behavior: SnackBarBehavior.floating,
                     content: Row(
                       children: [
@@ -480,7 +485,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                                 ? 'Template Prompt ${currentCategory.title} berhasil disalin!'
                                 : '${currentCategory.title} Prompt template copied successfully!',
                             style: GoogleFonts.plusJakartaSans(
-                              color: MirelloColors.paperSurface,
+                              color: NostraColors.paperSurface,
                               fontSize: 13,
                               fontWeight: FontWeight.w500,
                             ),
@@ -521,13 +526,13 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
           height: 24,
           alignment: Alignment.center,
           decoration: const BoxDecoration(
-            color: MirelloColors.primaryInk,
+            color: NostraColors.primaryInk,
             shape: BoxShape.circle,
           ),
           child: Text(
             number,
             style: GoogleFonts.jetBrainsMono(
-              color: MirelloColors.paperSurface,
+              color: NostraColors.paperSurface,
               fontSize: 12,
               fontWeight: FontWeight.w700,
             ),
@@ -543,7 +548,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 13,
                   fontWeight: FontWeight.w700,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
               ),
               const SizedBox(height: 2),
@@ -551,7 +556,7 @@ class _PromptGuideSheetState extends State<PromptGuideSheet> {
                 subtitle,
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 11.5,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                   height: 1.4,
                 ),
               ),

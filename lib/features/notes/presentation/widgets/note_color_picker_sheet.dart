@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
-import '../../../../core/theme/mirello_theme.dart';
+import '../../../../core/theme/nostra_theme.dart';
 import '../../models/free_note.dart';
 
 /// Bottom sheet modal to select the background accent color for a FreeNote.
@@ -39,7 +39,7 @@ class NoteColorPickerSheet extends StatelessWidget {
       buffer.write(hex.replaceFirst('#', ''));
       return Color(int.parse(buffer.toString(), radix: 16));
     } catch (_) {
-      return MirelloColors.paperSurface;
+      return NostraColors.paperSurface;
     }
   }
 
@@ -48,7 +48,7 @@ class NoteColorPickerSheet extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
       decoration: const BoxDecoration(
-        color: MirelloColors.paperSurface,
+        color: NostraColors.paperSurface,
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       child: Column(
@@ -60,7 +60,7 @@ class NoteColorPickerSheet extends StatelessWidget {
               width: 36,
               height: 4,
               decoration: BoxDecoration(
-                color: MirelloColors.borderSubtle,
+                color: NostraColors.borderSubtle,
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
@@ -71,7 +71,7 @@ class NoteColorPickerSheet extends StatelessWidget {
             style: GoogleFonts.plusJakartaSans(
               fontSize: 15,
               fontWeight: FontWeight.w700,
-              color: MirelloColors.primaryInk,
+              color: NostraColors.primaryInk,
             ),
           ),
           const SizedBox(height: 16),
@@ -94,8 +94,8 @@ class NoteColorPickerSheet extends StatelessWidget {
                       shape: BoxShape.circle,
                       border: Border.all(
                         color: isSelected
-                            ? MirelloColors.primaryInk
-                            : MirelloColors.borderCard,
+                            ? NostraColors.primaryInk
+                            : NostraColors.borderCard,
                         width: isSelected ? 2.5 : 1.2,
                       ),
                       boxShadow: [
@@ -110,7 +110,7 @@ class NoteColorPickerSheet extends StatelessWidget {
                         ? const Icon(
                             LucideIcons.check,
                             size: 20,
-                            color: MirelloColors.primaryInk,
+                            color: NostraColors.primaryInk,
                           )
                         : null,
                   ),

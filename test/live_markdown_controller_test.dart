@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:mirello_utbk/core/services/app_settings_service.dart';
-import 'package:mirello_utbk/features/notes/presentation/live_markdown_controller.dart';
+import 'package:nostra/core/services/app_settings_service.dart';
+import 'package:nostra/features/notes/presentation/live_markdown_controller.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

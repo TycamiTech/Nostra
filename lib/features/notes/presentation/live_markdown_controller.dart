@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/services/app_settings_service.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 
 /// A custom [TextEditingController] that performs live inline markdown rendering.
 ///
@@ -37,11 +37,11 @@ class LiveMarkdownEditingController extends TextEditingController {
     TextStyle? style,
     required bool withComposing,
   }) {
-    final baseStyle = style ?? const TextStyle(fontSize: 16, color: MirelloColors.primaryInk);
+    final baseStyle = style ?? const TextStyle(fontSize: 16, color: NostraColors.primaryInk);
     final isNormal = AppSettingsService.instance.isNormal;
 
     final syntaxMarkerStyle = baseStyle.copyWith(
-      color: MirelloColors.secondaryMuted.withValues(alpha: 0.65),
+      color: NostraColors.secondaryMuted.withValues(alpha: 0.65),
       fontWeight: FontWeight.w400,
     );
 
@@ -89,7 +89,7 @@ class LiveMarkdownEditingController extends TextEditingController {
       final h1Style = baseStyle.copyWith(
         fontSize: 22,
         fontWeight: FontWeight.w700,
-        color: MirelloColors.primaryInk,
+        color: NostraColors.primaryInk,
         height: 1.3,
       );
 
@@ -116,7 +116,7 @@ class LiveMarkdownEditingController extends TextEditingController {
       final h2Style = baseStyle.copyWith(
         fontSize: 18,
         fontWeight: FontWeight.w700,
-        color: MirelloColors.primaryInk,
+        color: NostraColors.primaryInk,
         height: 1.35,
       );
 

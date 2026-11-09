@@ -4,7 +4,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../core/localization/app_strings.dart';
 import '../../../core/services/app_settings_service.dart';
-import '../../../core/theme/mirello_theme.dart';
+import '../../../core/theme/nostra_theme.dart';
 import '../../annotations/models/toc_item.dart';
 import '../../annotations/presentation/search_and_toc_sheet.dart';
 import '../../annotations/presentation/sticky_note_overlay.dart';
@@ -13,7 +13,7 @@ import '../../library/models/subject_notebook.dart';
 import '../../library/presentation/dual_import_sheet.dart';
 import '../data/reader_repository.dart';
 import '../models/sticky_note.dart';
-import '../services/mirello_markdown_parser.dart';
+import '../services/nostra_markdown_parser.dart';
 
 class ReaderScreen extends StatefulWidget {
   final SubjectNotebook notebook;
@@ -58,7 +58,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
 
   void _loadMarkdownPages() {
     final rawMarkdown = _notebook.markdownContent ?? '';
-    _markdownPages = MirelloMarkdownParser.splitPages(rawMarkdown);
+    _markdownPages = NostraMarkdownParser.splitPages(rawMarkdown);
     _totalPages = _markdownPages.length;
   }
 
@@ -89,7 +89,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
   List<TocItem> _buildDynamicToc() {
     final items = <TocItem>[];
     for (int i = 0; i < _markdownPages.length; i++) {
-      final title = MirelloMarkdownParser.extractPageTitle(
+      final title = NostraMarkdownParser.extractPageTitle(
         _markdownPages[i],
         pageIndex: i,
       );
@@ -126,7 +126,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                 _notebookRepo.updateCurrentPage(_notebook.id, _currentPage);
               },
               itemBuilder: (context, index) {
-                return MirelloEditorialPageView(
+                return NostraEditorialPageView(
                   notebook: _notebook,
                   pageMarkdown: _markdownPages[index],
                   pageIndex: index,
@@ -202,7 +202,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
             child: _buildFloatingPageIndicator(),
           ),
 
-          // Centered Bottom Floating Pill Toolbar (Mirello main menu background #F5F4F0)
+          // Centered Bottom Floating Pill Toolbar (Nostra main menu background #F5F4F0)
           Positioned(
             left: 24,
             right: 24,
@@ -225,7 +225,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
           color: _notebook.cardColor,
           border: const Border(
             bottom: BorderSide(
-              color: MirelloColors.borderCard,
+              color: NostraColors.borderCard,
               width: 1.0,
             ),
           ),
@@ -239,7 +239,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                 IconButton(
                   icon: const Icon(
                     LucideIcons.arrowLeft,
-                    color: MirelloColors.primaryInk,
+                    color: NostraColors.primaryInk,
                     size: 20,
                   ),
                   splashColor: Colors.transparent,
@@ -255,7 +255,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 15.5,
                       fontWeight: FontWeight.w600,
-                      color: MirelloColors.primaryInk,
+                      color: NostraColors.primaryInk,
                       letterSpacing: -0.2,
                     ),
                   ),
@@ -263,7 +263,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                 IconButton(
                   icon: const Icon(
                     LucideIcons.list,
-                    color: MirelloColors.primaryInk,
+                    color: NostraColors.primaryInk,
                     size: 20,
                   ),
                   tooltip: AppStrings.isIndonesian
@@ -277,7 +277,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                 IconButton(
                   icon: const Icon(
                     LucideIcons.fileUp,
-                    color: MirelloColors.primaryInk,
+                    color: NostraColors.primaryInk,
                     size: 20,
                   ),
                   tooltip: AppStrings.isIndonesian
@@ -308,10 +308,10 @@ class _ReaderScreenState extends State<ReaderScreen> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
-          color: MirelloColors.scaffoldBackground,
+          color: NostraColors.scaffoldBackground,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: MirelloColors.borderCard,
+            color: NostraColors.borderCard,
             width: 1.0,
           ),
           boxShadow: const [
@@ -338,7 +338,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
               style: GoogleFonts.jetBrainsMono(
                 fontSize: 13,
                 fontWeight: FontWeight.w700,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
                 letterSpacing: 0.3,
               ),
             ),
@@ -353,10 +353,10 @@ class _ReaderScreenState extends State<ReaderScreen> {
     return Container(
       height: 62,
       decoration: BoxDecoration(
-        color: MirelloColors.scaffoldBackground,
+        color: NostraColors.scaffoldBackground,
         borderRadius: BorderRadius.circular(22),
         border: Border.all(
-          color: MirelloColors.borderCard,
+          color: NostraColors.borderCard,
           width: 1.0,
         ),
         boxShadow: const [
@@ -381,7 +381,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                 : LucideIcons.bookmark,
             iconColor: _isBookmarked
                 ? const Color(0xFFBA1A1A)
-                : MirelloColors.primaryInk,
+                : NostraColors.primaryInk,
             label: 'Bookmark',
             onTap: _toggleBookmark,
             onLongPress: () =>
@@ -391,7 +391,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
             icon: LucideIcons.stickyNote,
             iconColor: _currentStickyNotes.isNotEmpty
                 ? const Color(0xFFD97706)
-                : MirelloColors.primaryInk,
+                : NostraColors.primaryInk,
             label: 'Sticky Notes',
             onTap: () => _openStickyNoteEditor(),
             onLongPress: _showStickyNotesSheet,
@@ -406,7 +406,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
     required String label,
     required VoidCallback onTap,
     VoidCallback? onLongPress,
-    Color iconColor = MirelloColors.primaryInk,
+    Color iconColor = NostraColors.primaryInk,
   }) {
     return InkWell(
       borderRadius: BorderRadius.circular(14),
@@ -430,7 +430,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
               style: GoogleFonts.plusJakartaSans(
                 fontSize: 11.5,
                 fontWeight: FontWeight.w600,
-                color: MirelloColors.primaryInk,
+                color: NostraColors.primaryInk,
               ),
             ),
           ],
@@ -450,7 +450,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        backgroundColor: MirelloColors.primaryInk,
+        backgroundColor: NostraColors.primaryInk,
         behavior: SnackBarBehavior.floating,
         duration: const Duration(seconds: 1),
         content: Text(
@@ -462,7 +462,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                   ? 'Bookmark halaman $_currentPage dihapus.'
                   : 'Bookmark for page $_currentPage removed.'),
           style: GoogleFonts.plusJakartaSans(
-            color: MirelloColors.paperSurface,
+            color: NostraColors.paperSurface,
             fontSize: 12.5,
           ),
         ),
@@ -515,10 +515,10 @@ class _ReaderScreenState extends State<ReaderScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          backgroundColor: MirelloColors.paperSurface,
+          backgroundColor: NostraColors.paperSurface,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
-            side: const BorderSide(color: MirelloColors.borderSubtle, width: 1),
+            side: const BorderSide(color: NostraColors.borderSubtle, width: 1),
           ),
           title: Text(
             AppStrings.isIndonesian
@@ -527,7 +527,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
             style: GoogleFonts.plusJakartaSans(
               fontSize: 17,
               fontWeight: FontWeight.w700,
-              color: MirelloColors.primaryInk,
+              color: NostraColors.primaryInk,
             ),
           ),
           content: Column(
@@ -539,7 +539,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                     : 'Enter page number (1 to $_totalPages):',
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 13,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                 ),
               ),
               const SizedBox(height: 14),
@@ -550,7 +550,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                 style: GoogleFonts.jetBrainsMono(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
-                  color: MirelloColors.primaryInk,
+                  color: NostraColors.primaryInk,
                 ),
                 decoration: InputDecoration(
                   filled: true,
@@ -572,14 +572,14 @@ class _ReaderScreenState extends State<ReaderScreen> {
                 AppStrings.cancel,
                 style: GoogleFonts.plusJakartaSans(
                   fontWeight: FontWeight.w600,
-                  color: MirelloColors.secondaryMuted,
+                  color: NostraColors.secondaryMuted,
                 ),
               ),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: MirelloColors.primaryInk,
-                foregroundColor: MirelloColors.paperSurface,
+                backgroundColor: NostraColors.primaryInk,
+                foregroundColor: NostraColors.paperSurface,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -637,7 +637,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                 bottom: MediaQuery.of(context).viewInsets.bottom + 24,
               ),
               decoration: const BoxDecoration(
-                color: MirelloColors.paperSurface,
+                color: NostraColors.paperSurface,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
               ),
               child: Column(
@@ -652,14 +652,14 @@ class _ReaderScreenState extends State<ReaderScreen> {
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 17,
                           fontWeight: FontWeight.w700,
-                          color: MirelloColors.primaryInk,
+                          color: NostraColors.primaryInk,
                         ),
                       ),
                       IconButton(
                         icon: const Icon(
                           LucideIcons.plusCircle,
                           size: 20,
-                          color: MirelloColors.primaryInk,
+                          color: NostraColors.primaryInk,
                         ),
                         onPressed: () {
                           Navigator.pop(context);
@@ -678,14 +678,14 @@ class _ReaderScreenState extends State<ReaderScreen> {
                             const Icon(
                               LucideIcons.stickyNote,
                               size: 32,
-                              color: MirelloColors.secondaryMuted,
+                              color: NostraColors.secondaryMuted,
                             ),
                             const SizedBox(height: 8),
                             Text(
                               'Belum ada catatan pada halaman ini.',
                               style: GoogleFonts.plusJakartaSans(
                                 fontSize: 13,
-                                color: MirelloColors.secondaryMuted,
+                                color: NostraColors.secondaryMuted,
                               ),
                             ),
                           ],
@@ -729,7 +729,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                                         style: GoogleFonts.caveat(
                                           fontSize: 17,
                                           fontWeight: FontWeight.w600,
-                                          color: MirelloColors.primaryInk,
+                                          color: NostraColors.primaryInk,
                                           height: 1.25,
                                         ),
                                       ),
@@ -743,7 +743,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                                       child: const Icon(
                                         LucideIcons.trash2,
                                         size: 16,
-                                        color: MirelloColors.secondaryMuted,
+                                        color: NostraColors.secondaryMuted,
                                       ),
                                     ),
                                   ],
@@ -760,8 +760,8 @@ class _ReaderScreenState extends State<ReaderScreen> {
                     width: double.infinity,
                     child: ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: MirelloColors.primaryInk,
-                        foregroundColor: MirelloColors.paperSurface,
+                        backgroundColor: NostraColors.primaryInk,
+                        foregroundColor: NostraColors.paperSurface,
                         elevation: 0,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(14),

@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:mirello_utbk/features/backup/services/local_vault_service.dart';
-import 'package:mirello_utbk/features/notes/data/free_notes_repository.dart';
+import 'package:nostra/features/backup/services/local_vault_service.dart';
+import 'package:nostra/features/notes/data/free_notes_repository.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
